@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>02statusRequests on NIS API</title>
+    <link>http://example.org/02statusrequests/</link>
+    <description>Recent content in 02statusRequests on NIS API</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://example.org/02statusrequests/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NIS status related requests</title>
+      <link>http://example.org/02statusrequests/01statusrelatedrequests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/02statusrequests/01statusrelatedrequests/</guid>
+      <description>NIS status related requests There are two requests by which you can get information about the status of NIS. The /heartbeat request gives you information if the node is up and responsive. The /status request gives more detailed information about the state of NIS. Both requests return a NemRequestResult object. See Appendix A: [NemRequestResult]() for more details on the interpretation of a NemRequestResult.</description>
+    </item>
+    
+    <item>
+      <title>2.1 Heart beat request</title>
+      <link>http://example.org/02statusrequests/02heartbeat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/02statusrequests/02heartbeat/</guid>
+      <description>Heart Beat Request curl &amp;#34;http://127.0.0.1:7890/heartbeat&amp;#34;  Example of returned JSON object:
+ { &amp;#34;code&amp;#34;: 1, &amp;#34;type&amp;#34;: 2, &amp;#34;message&amp;#34;: &amp;#34;ok&amp;#34; }    API path: Request type:     /heartbeat GET    Description: Determines if NIS is up and responsive.
+No Parameter. Possible Errors: If there is no response to this request, NIS is either not running or is in a state where it can&amp;rsquo;t serve requests.</description>
+    </item>
+    
+    <item>
+      <title>2.2. Status Request</title>
+      <link>http://example.org/02statusrequests/02statusrequest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/02statusrequests/02statusrequest/</guid>
+      <description>Status Request curl &amp;#34;http://127.0.0.1:7890/status&amp;#34;  Example of returned JSON object:
+ { &amp;#34;code&amp;#34;: 6, &amp;#34;type&amp;#34;: 4, &amp;#34;message&amp;#34;: &amp;#34;status&amp;#34; }    API path: Request type:     /status GET    Description: Determines the status of NIS.
+No Parameter The code can be interpreted as follows:  0: Unknown status. 1: NIS is stopped. 2: NIS is starting. 3: NIS is running. 4: NIS is booting the local node (implies NIS is running).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,56 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "NIS API Documentation"
+theme = "docuapi"
+
+# Code higlighting settings
+pygmentsCodefences = true
+pygmentsCodeFencesGuesSsyntax = false
+pygmentsOptions = ""
+pygmentsStyle = "monokai"
+# The monokai stylesheet is included in the base template.
+pygmentsUseClasses = true
+
+defaultContentLanguage = "en"
+
+[params]
+search = true
+
+# Configure the language example tabs.
+[[params.language_tabs]]
+key = "shell"
+name = "Shell"
+
+#Languages
+[languages]
+
+[languages.en]
+languageName = "English"
+weight = 1
+title = "NIS API"
+
+# Left sidebar footer items. Use HTMl or Markdown.
+toc_footers = [
+"<p>© NEM.io Foundation Ltd (Singapore)</p>",
+"<p>All Rights Reserved | NEM ™</p>"
+]
+[languages.en.blackfriday]
+angledQuotes = false
+hrefTargetBlank = true
+
+
+[languages.nn]
+languageName = "Nynorsk"
+weight = 2
+title = "NIS API"
+
+# Left sidebar footer items. Use HTMl or Markdown.
+toc_footers = [
+"© NEM.io Foundation Ltd (Singapore)",
+"All Rights Reserved | NEM ™"
+]
+
+[languages.nn.blackfriday]
+# Norwegian uses angled quotes
+angledQuotes = true
+hrefTargetBlank = true

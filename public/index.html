@@ -1,0 +1,718 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.30.2" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>NIS API</title>
+    <link href='/slate/stylesheets/monokai.css' rel="stylesheet" media="screen" />
+<link href='/slate/stylesheets/screen.css' rel="stylesheet" media="screen" />
+<link href='/slate/stylesheets/print.css' rel="stylesheet" media="print" />
+
+    
+<script src='/slate/javascripts/all.js'></script>
+
+    
+</head>
+<body class="index" data-languages="[ &#34;shell&#34; ]">
+    <a href="#" id="nav-button">
+        <span>
+        NAV
+        <img src='/slate/images/navbar.png'/>
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        
+         <img src='/images/logo.png' />
+        
+        <div class="lang-selector">
+            
+            <a href="#" data-language-name="shell">Shell</a>
+            
+        </div>
+         
+        
+        <div class="search">
+            <input type="text" class="search" id="input-search" placeholder='Search'>
+        </div>
+        <ul class="search-results"></ul>
+        
+        <div id="toc">
+        </div>
+        
+        <div class="toc-footer">
+            <h3 class="translations-title">Translation</h3> 
+            
+<ul>
+    
+        <li><a href="http://example.org/nn/">Nynorsk</a></li>
+    
+</ul>
+
+
+        </div>
+         
+        
+        <ul class="toc-footer">
+            
+            <li>© NEM.io Foundation Ltd (Singapore)</li>
+            
+            <li>All Rights Reserved | NEM ™</li>
+            
+        </ul>
+        
+        
+
+    </div>
+    <div class="page-wrapper">
+        <div class="dark-box"></div>
+        <div class="content">
+            
+    
+        
+
+<h1 id="introduction">Introduction</h1>
+
+<p>The NEM Infrastructure Server (short: NIS) was written in Java. It needs Java 8 to run. It can run with at least 512MB memory for the java virtual machine but we recommend at least 1GB.</p>
+
+    
+        
+
+<h2 id="installation">Installation</h2>
+
+<p>NIS can be installed either via installer using the <a href="http://bob.nem.ninja/installer/" target="_blank">NEM Infrastructure Server</a> or as stand-alone package which is hosted on <a href="http://bob.nem.ninja/" target="_blank">http://bob.nem.ninja/</a>. The installer only supports 64 bit versions of Java. The current stand-alone version as of this writing is <a href="http://bob.nem.ninja/nis-ncc-0.6.84.tgz" target="_blank">nis-ncc-0.6.84.tgz</a>. When using the installer both installation and the start-up of the software is automatic. The stand-alone version needs to be unzipped to a directory of your choice. It is then started by running runNis.bat (windows) or nix.runNis.sh (linux) from the command prompt.</p>
+
+    
+        
+
+<h2 id="requests">Requests</h2>
+
+<p>NIS uses port 7890 to communicate with its clients. It accepts both HTTP GET and POST requests.</p>
+
+<p>Assuming that the NIS is running locally, HTTP GET requests can be executed from a browser and have the form:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">http://127.0.0.1:7890&lt;path to API request&gt;?&lt;parameters&gt;<span class="sb">`</span> <span class="k">for</span> example:
+
+curl <span class="s2">&#34;http://127.0.0.1:7890/account/get?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&#34;</span></code></pre></div>
+<p>HTTP POST request usually cannot be executed from within the browser unless you use a plugin which is able to do it. HTTP POST requests use JSON structures in the request body to supply data to NIS.</p>
+
+<p>Both request types return (if any data is returned) data using JSON structures. [Appendix A: Description of the JSON Structures]() explains all JSON structures used in this document.</p>
+
+    
+        
+
+<h1 id="nis-status-related-requests">NIS status related requests</h1>
+
+<p>There are two requests by which you can get information about the status of NIS. The <code>/heartbeat</code> request gives you information if the node is up and responsive. The <code>/status</code> request gives more detailed information about the state of NIS. Both requests return a NemRequestResult object. <em>See Appendix A:</em> [NemRequestResult]() for more details on the interpretation of a NemRequestResult.</p>
+
+    
+        
+
+<h2 id="heart-beat-request">Heart Beat Request</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">curl <span class="s2">&#34;http://127.0.0.1:7890/heartbeat&#34;</span></code></pre></div>
+<blockquote>
+<p>Example of returned JSON object:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;code&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;ok&#34;</span>
+<span class="p">}</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>API path:</th>
+<th align="left">Request type:</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>/heartbeat</code></td>
+<td align="left"><code>GET</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="description">Description:</h3>
+
+<p>Determines if NIS is up and responsive.</p>
+
+<h3 id="no-parameter">No Parameter.</h3>
+
+<h3 id="possible-errors">Possible Errors:</h3>
+
+<p>If there is no response to this request, NIS is either not running or is in a state where it can&rsquo;t serve requests.</p>
+
+    
+        
+
+<h2 id="status-request">Status Request</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">curl <span class="s2">&#34;http://127.0.0.1:7890/status&#34;</span></code></pre></div>
+<blockquote>
+<p>Example of returned JSON object:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;code&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;status&#34;</span>
+<span class="p">}</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>API path:</th>
+<th align="left">Request type:</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>/status</code></td>
+<td align="left"><code>GET</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="description">Description:</h3>
+
+<p>Determines the status of NIS.</p>
+
+<h3 id="no-parameter">No Parameter</h3>
+
+<h4 id="the-code-can-be-interpreted-as-follows">The code can be interpreted as follows:</h4>
+
+<ul>
+<li>0: Unknown status.</li>
+<li>1: NIS is stopped.</li>
+<li>2: NIS is starting.</li>
+<li>3: NIS is running.</li>
+<li>4: NIS is booting the local node (implies NIS is running).</li>
+<li>5: The local node is booted (implies NIS is running).</li>
+<li>6: The local node is synchronized (implies NIS is running and the local node is booted).</li>
+<li>7: NIS local node does not see any remote NIS node (implies running and booted).</li>
+<li>8: NIS is currently loading the block chain from the database. In this state NIS cannot serve any requests.</li>
+</ul>
+
+<h3 id="possible-errors">Possible Errors:</h3>
+
+<p>If there is no response to this request, NIS is either not running or is in a state where it can&rsquo;t serve requests.</p>
+
+    
+        
+
+<h1 id="errors">Errors</h1>
+
+<aside class="notice">This error section is stored in a separate file, errors.md. DocuAPI allows you to split the single page documentation in as many files as needed. Files are included in the  default Hugo page order . One way of ordering the pages is by setting the page `weight` in the front matter. Pages with lower weight will be listed first.</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Request method &lsquo;GET&rsquo; not supported</td>
+<td>The request was performed as GET request but was expected to be a POST request.</td>
+</tr>
+
+<tr>
+<td>address must be valid</td>
+<td>At least one address supplied in the request was invalid. Addresses are validated before processing a request. If validation fails, an error containing this message is returned.</td>
+</tr>
+
+<tr>
+<td>FAILURE_SERVER_LIMIT</td>
+<td>The number of accounts that are allowed to harvest on NIS was exceeded.</td>
+</tr>
+
+<tr>
+<td>JSON Object was expected</td>
+<td>A parameter is missing in the request.</td>
+</tr>
+
+<tr>
+<td>FAILURE_UNKNOWN_ACCOUNT</td>
+<td>The account specified in the request is not known.</td>
+</tr>
+
+<tr>
+<td>block not found in the db</td>
+<td>The block that was requested could not be found in the database.</td>
+</tr>
+
+<tr>
+<td>height must be positive</td>
+<td>The block height supplied in a request was zero or negative. Block height must always be greater than zero.</td>
+</tr>
+
+<tr>
+<td>network has not been booted yet</td>
+<td>Most requests need the node that should answer the request to be already booted. If node is not booted yet, this error message will be returned.</td>
+</tr>
+
+<tr>
+<td>network boot was already attempted</td>
+<td>It was attempted to boot an already booted node. Nodes can only be booted once.</td>
+</tr>
+
+<tr>
+<td>remote 123.45.67.89 attempted to call local /node/boot</td>
+<td>It was attempted to boot a remote node. Only local node can be booted.</td>
+</tr>
+
+<tr>
+<td>FAILURE_PAST_DEADLINE</td>
+<td>The deadline for the entity has already expired. The deadline must always lie in the future.</td>
+</tr>
+
+<tr>
+<td>FAILURE_FUTURE_DEADLINE</td>
+<td>The deadline lies too far in the future. Deadlines are only allowed to lie up to 24 hours in the future.</td>
+</tr>
+
+<tr>
+<td>FAILURE_INSUFFICIENT_BALANCE</td>
+<td>The account does not have enough funds.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MESSAGE_TOO_LARGE</td>
+<td>The message for the transaction exceeds the limit of 512 bytes.</td>
+</tr>
+
+<tr>
+<td>FAILURE_HASH_EXISTS</td>
+<td>The hash of the entity already exists either in the cache or in the database.</td>
+</tr>
+
+<tr>
+<td>FAILURE_SIGNATURE_NOT_VERIFIABLE</td>
+<td>The signature of the entity failed upon verification.</td>
+</tr>
+
+<tr>
+<td>FAILURE_TIMESTAMP_TOO_FAR_IN_PAST</td>
+<td>The timestamp of the entity lies to far in the past.</td>
+</tr>
+
+<tr>
+<td>FAILURE_TIMESTAMP_TOO_FAR_IN_FUTURE</td>
+<td>The timestamp of the entity lies too far in the future.</td>
+</tr>
+
+<tr>
+<td>FAILURE_INELIGIBLE_BLOCK_SIGNER</td>
+<td>Validation failed because the block had an ineligible signer. This usually occurs when remote harvesting is in the process of being activated or deactivated.</td>
+</tr>
+
+<tr>
+<td>FAILURE_ENTITY_UNUSABLE_OUT_OF_SYNC</td>
+<td>The entity cannot be processed because the remote node is out of synchronization with the local node. This happens frequently when a node is not fully synchronized and receives a new block with much larger height than its own chain.</td>
+</tr>
+
+<tr>
+<td>FAILURE_INSUFFICIENT_FEE</td>
+<td>The supplied transaction has an insufficient fee.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NEMESIS_ACCOUNT_TRANSACTION_AFTER_NEMESIS_BLOCK</td>
+<td>The supplied transaction has the nemesis account as sender and cannot be included in a normal block.</td>
+</tr>
+
+<tr>
+<td>FAILURE_TRANSACTION_CACHE_TOO_FULL</td>
+<td>The transaction was rejected because the transaction cache is too full. This happens when an account tries to send too many transactions in a short time. To improve the chance that the transaction gets accepted you can try to raise the transaction fee.</td>
+</tr>
+
+<tr>
+<td>FAILURE_WRONG_NETWORK</td>
+<td>Entity was rejected because it has the wrong network specified.</td>
+</tr>
+
+<tr>
+<td>FAILURE_CANNOT_HARVEST_FROM_BLOCKED_ACCOUNT</td>
+<td>Block was rejected because it was harvested by a blocked account (typically a reserved NEM fund).</td>
+</tr>
+
+<tr>
+<td>FAILURE_DESTINATION_ACCOUNT_HAS_NONZERO_BALANCE</td>
+<td>The importance cannot be transferred to an account with nonzero balance.</td>
+</tr>
+
+<tr>
+<td>FAILURE_IMPORTANCE_TRANSFER_IN_PROGRESS</td>
+<td>The transaction is conflicting because there is already a transfer of importance in progress.</td>
+</tr>
+
+<tr>
+<td>FAILURE_IMPORTANCE_TRANSFER_NEEDS_TO_BE_DEACTIVATED</td>
+<td>The transaction is conflicting because the importance was already transferred.</td>
+</tr>
+
+<tr>
+<td>FAILURE_IMPORTANCE_TRANSFER_IS_NOT_ACTIVE</td>
+<td>The transaction is conflicting because no importance has been transferred yet.</td>
+</tr>
+
+<tr>
+<td>FAILURE_TRANSACTION_NOT_ALLOWED_FOR_REMOTE</td>
+<td>Validation failed because transaction is using remote account in an improper way.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_NOT_A_COSIGNER</td>
+<td>The multisig transaction was rejected because the signer of the transaction is not a cosignatory of the sender account of the inner transaction.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_INVALID_COSIGNERS</td>
+<td>Validation failed because the cosignatories attached to a multisig transaction were invalid.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_NO_MATCHING_MULTISIG</td>
+<td>The signature transaction was rejected because the corresponding multisig transaction was not found.</td>
+</tr>
+
+<tr>
+<td>FAILURE_TRANSACTION_NOT_ALLOWED_FOR_MULTISIG</td>
+<td>The transaction was rejected because the signer is a multisig account. Multisig accounts are not allowed to initiate any transaction (only cosignatories are allowed to do so).</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_ALREADY_A_COSIGNER</td>
+<td>The transaction was rejected because it tried to add a cosignatory to a multisig account which already has this cosignatory.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_MODIFICATION_MULTIPLE_DELETES</td>
+<td>The transaction was rejected because it tried to remove multiple cosignatories at once. It is only allowed to remove one cosignatory at a time.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_MODIFICATION_REDUNDANT_MODIFICATIONS</td>
+<td>The transaction was rejected because it tried to do redundant modifications. This can happen if a transaction tries to add the same cosignatory two time.</td>
+</tr>
+
+<tr>
+<td>FAILURE_CONFLICTING_MULTISIG_MODIFICATION</td>
+<td>The transaction was rejected because it contained conflicting modifications to a multisig account. This can for instance happen if a transaction tries to add and then delete the same cosignatory.</td>
+</tr>
+
+<tr>
+<td>FAILURE_TOO_MANY_MULTISIG_COSIGNERS</td>
+<td>The transaction was rejected because it contains too many cosignatories. The maximum number of cosignatories allowed for a multisig account is 32.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_ACCOUNT_CANNOT_BE_COSIGNER</td>
+<td>Validation failed because a multisig modification would result in a multisig account being a cosigner.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MULTISIG_MIN_COSIGNATORIES_OUT_OF_RANGE</td>
+<td>Validation failed because the minimum number of cosignatories is negative or larger than the number of cosignatories.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_UNKNOWN</td>
+<td>Validation failed because the namespace is unknown.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_ALREADY_EXISTS</td>
+<td>Validation failed because the namespace already exists.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_EXPIRED</td>
+<td>Validation failed because the namespace has expired.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_OWNER_CONFLICT</td>
+<td>Validation failed because the transaction signer is not the owner of the namespace.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_INVALID_NAME</td>
+<td>Validation failed because the name for the namespace is invalid.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_INVALID_RENTAL_FEE_SINK</td>
+<td>Validation failed because the specified namespace rental fee sink is invalid.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_INVALID_RENTAL_FEE</td>
+<td>Validation failed because the specified rental fee is invalid.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_PROVISION_TOO_EARLY</td>
+<td>Validation failed because the provision was done too early.</td>
+</tr>
+
+<tr>
+<td>FAILURE_NAMESPACE_NOT_CLAIMABLE</td>
+<td>Validation failed because the namespace contains a reserved part and is not claimable.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_UNKNOWN</td>
+<td>Validation failed because the mosaic is unknown.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_MODIFICATION_NOT_ALLOWED</td>
+<td>Validation failed because the modification of the existing mosaic is not allowed.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_CREATOR_CONFLICT</td>
+<td>Validation failed because the transaction signer is not the creator of the mosaic.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_SUPPLY_IMMUTABLE</td>
+<td>Validation failed because the mosaic supply is immutable.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_MAX_SUPPLY_EXCEEDED</td>
+<td>Validation failed because the maximum overall mosaic supply is exceeded.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_SUPPLY_NEGATIVE</td>
+<td>Validation failed because the resulting mosaic supply would be negative.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_NOT_TRANSFERABLE</td>
+<td>Validation failed because the mosaic is not transferable.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_DIVISIBILITY_VIOLATED</td>
+<td>Validation failed because the divisibility of the mosaic is violated.</td>
+</tr>
+
+<tr>
+<td>FAILURE_CONFLICTING_MOSAIC_CREATION</td>
+<td>Validation failed because conflicting mosaic creation is present.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_INVALID_CREATION_FEE_SINK</td>
+<td>Validation failed because the mosaic creation fee sink is invalid.</td>
+</tr>
+
+<tr>
+<td>FAILURE_MOSAIC_INVALID_CREATION_FEE</td>
+<td>Validation failed because the specified creation fee is invalid.</td>
+</tr>
+
+<tr>
+<td>FAILURE_TOO_MANY_MOSAIC_TRANSFERS</td>
+<td>Validation failed because a transfer transaction had too many attached mosaic transfers.</td>
+</tr>
+</tbody>
+</table>
+
+    
+        
+
+<h1 id="sample-page-for-nis-doc-editors-reference">SAMPLE PAGE, for NIS doc editors reference</h1>
+
+<p><strong>This example API documentation page was created with <a href="https://github.com/bep/docuapi/" target="_blank">DocuAPI</a>, a multilingual documentation theme for the static site generator <a href="http://gohugo.io/" target="_blank">Hugo</a>.</strong></p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;github.com/bep/kittn/auth&#34;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">api</span> <span class="o">:=</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">Authorize</span><span class="p">(</span><span class="s">&#34;meowmeowmeow&#34;</span><span class="p">)</span>
+
+	<span class="c1">// Just to make it compile
+</span><span class="c1"></span>	<span class="nx">_</span> <span class="p">=</span> <span class="nx">api</span>
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;kittn&#39;</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="o">.</span><span class="n">authorize!</span><span class="p">(</span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># With shell, you can just pass the correct header with each request
+</span><span class="c1"></span>curl <span class="s2">&#34;api_endpoint_here&#34;</span>
+  -H <span class="s2">&#34;Authorization: meowmeowmeow&#34;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kittn&#39;</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">);</span></code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+</blockquote>
+
+<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers" target="_blank">developer portal</a>.</p>
+
+<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: meowmeowmeow</code></p>
+
+<aside class="notice">
+You must replace <code>meowmeowmeow</code> with your personal API key.
+</aside>
+
+<h2 id="get-all-kittens">Get All Kittens</h2>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;github.com/bep/kittn/auth&#34;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">api</span> <span class="o">:=</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">Authorize</span><span class="p">(</span><span class="s">&#34;meowmeowmeow&#34;</span><span class="p">)</span>
+
+	<span class="nx">_</span> <span class="p">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">GetKittens</span><span class="p">()</span>
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;kittn&#39;</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="o">.</span><span class="n">authorize!</span><span class="p">(</span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">curl <span class="s2">&#34;http://example.com/api/kittens&#34;</span>
+  -H <span class="s2">&#34;Authorization: meowmeowmeow&#34;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kittn&#39;</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Fluffums&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;breed&#34;</span><span class="p">:</span> <span class="s2">&#34;calico&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;fluffiness&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="nt">&#34;cuteness&#34;</span><span class="p">:</span> <span class="mi">7</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Max&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;breed&#34;</span><span class="p">:</span> <span class="s2">&#34;unknown&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;fluffiness&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="nt">&#34;cuteness&#34;</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre></div>
+<p>This endpoint retrieves all kittens.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET http://example.com/api/kittens</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>include_cats</td>
+<td>false</td>
+<td>If set to true, the result will also include cats.</td>
+</tr>
+
+<tr>
+<td>available</td>
+<td>true</td>
+<td>If set to false, the result will include kittens that have already been adopted.</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+
+<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;github.com/bep/kittn/auth&#34;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">api</span> <span class="o">:=</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">Authorize</span><span class="p">(</span><span class="s">&#34;meowmeowmeow&#34;</span><span class="p">)</span>
+
+	<span class="nx">_</span> <span class="p">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">GetKitten</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;kittn&#39;</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="o">.</span><span class="n">authorize!</span><span class="p">(</span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="o"></span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">curl <span class="s2">&#34;http://example.com/api/kittens/2&#34;</span>
+  -H <span class="s2">&#34;Authorization: meowmeowmeow&#34;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kittn&#39;</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">&#39;meowmeowmeow&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Max&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;breed&#34;</span><span class="p">:</span> <span class="s2">&#34;unknown&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;fluffiness&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nt">&#34;cuteness&#34;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span></code></pre></div>
+<p>This endpoint retrieves a specific kitten.</p>
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+<h3 id="http-request-1">HTTP Request</h3>
+
+<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to retrieve</td>
+</tr>
+</tbody>
+</table>
+
+    
+
+        </div>
+        <div class="dark-box">
+            
+            <div class="lang-selector">
+                
+                <a href="#" data-language-name="shell">Shell</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

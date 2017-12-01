@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NIS API</title>
+    <link>http://example.org/</link>
+    <description>Recent content on NIS API</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.1 General Information</title>
+      <link>http://example.org/01intro/01generalinfo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/01intro/01generalinfo/</guid>
+      <description>Introduction The NEM Infrastructure Server (short: NIS) was written in Java. It needs Java 8 to run. It can run with at least 512MB memory for the java virtual machine but we recommend at least 1GB.</description>
+    </item>
+    
+    <item>
+      <title>1.2 Installation</title>
+      <link>http://example.org/01intro/02install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/01intro/02install/</guid>
+      <description>Installation NIS can be installed either via installer using the NEM Infrastructure Server or as stand-alone package which is hosted on http://bob.nem.ninja/. The installer only supports 64 bit versions of Java. The current stand-alone version as of this writing is nis-ncc-0.6.84.tgz. When using the installer both installation and the start-up of the software is automatic. The stand-alone version needs to be unzipped to a directory of your choice. It is then started by running runNis.</description>
+    </item>
+    
+    <item>
+      <title>1.3. Requests</title>
+      <link>http://example.org/01intro/03requests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/01intro/03requests/</guid>
+      <description>Requests NIS uses port 7890 to communicate with its clients. It accepts both HTTP GET and POST requests.
+Assuming that the NIS is running locally, HTTP GET requests can be executed from a browser and have the form:
+http://127.0.0.1:7890&amp;lt;path to API request&amp;gt;?&amp;lt;parameters&amp;gt;` for example: curl &amp;#34;http://127.0.0.1:7890/account/get?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&amp;#34; HTTP POST request usually cannot be executed from within the browser unless you use a plugin which is able to do it. HTTP POST requests use JSON structures in the request body to supply data to NIS.</description>
+    </item>
+    
+    <item>
+      <title>NIS status related requests</title>
+      <link>http://example.org/02statusrequests/01statusrelatedrequests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/02statusrequests/01statusrelatedrequests/</guid>
+      <description>NIS status related requests There are two requests by which you can get information about the status of NIS. The /heartbeat request gives you information if the node is up and responsive. The /status request gives more detailed information about the state of NIS. Both requests return a NemRequestResult object. See Appendix A: [NemRequestResult]() for more details on the interpretation of a NemRequestResult.</description>
+    </item>
+    
+    <item>
+      <title>2.1 Heart beat request</title>
+      <link>http://example.org/02statusrequests/02heartbeat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/02statusrequests/02heartbeat/</guid>
+      <description>Heart Beat Request curl &amp;#34;http://127.0.0.1:7890/heartbeat&amp;#34;  Example of returned JSON object:
+ { &amp;#34;code&amp;#34;: 1, &amp;#34;type&amp;#34;: 2, &amp;#34;message&amp;#34;: &amp;#34;ok&amp;#34; }    API path: Request type:     /heartbeat GET    Description: Determines if NIS is up and responsive.
+No Parameter. Possible Errors: If there is no response to this request, NIS is either not running or is in a state where it can&amp;rsquo;t serve requests.</description>
+    </item>
+    
+    <item>
+      <title>2.2. Status Request</title>
+      <link>http://example.org/02statusrequests/02statusrequest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/02statusrequests/02statusrequest/</guid>
+      <description>Status Request curl &amp;#34;http://127.0.0.1:7890/status&amp;#34;  Example of returned JSON object:
+ { &amp;#34;code&amp;#34;: 6, &amp;#34;type&amp;#34;: 4, &amp;#34;message&amp;#34;: &amp;#34;status&amp;#34; }    API path: Request type:     /status GET    Description: Determines the status of NIS.
+No Parameter The code can be interpreted as follows:  0: Unknown status. 1: NIS is stopped. 2: NIS is starting. 3: NIS is running. 4: NIS is booting the local node (implies NIS is running).</description>
+    </item>
+    
+    <item>
+      <title>Errors</title>
+      <link>http://example.org/errors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/errors/</guid>
+      <description>Errors This error section is stored in a separate file, errors.md. DocuAPI allows you to split the single page documentation in as many files as needed. Files are included in the default Hugo page order . One way of ordering the pages is by setting the page `weight` in the front matter. Pages with lower weight will be listed first. The Kittn API uses the following error codes:
+   Error Message Description     Request method &amp;lsquo;GET&amp;rsquo; not supported The request was performed as GET request but was expected to be a POST request.</description>
+    </item>
+    
+    <item>
+      <title>API Reference</title>
+      <link>http://example.org/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/</guid>
+      <description>SAMPLE PAGE, for NIS doc editors reference This example API documentation page was created with DocuAPI, a multilingual documentation theme for the static site generator Hugo.
+ To authorize, use this code:
+ package main import &amp;#34;github.com/bep/kittn/auth&amp;#34; func main() { api := auth.Authorize(&amp;#34;meowmeowmeow&amp;#34;) // Just to make it compile 	_ = api }require &amp;#39;kittn&amp;#39; api = Kittn::APIClient.authorize!(&amp;#39;meowmeowmeow&amp;#39;)import kittn api = kittn.authorize(&amp;#39;meowmeowmeow&amp;#39;)# With shell, you can just pass the correct header with each request curl &amp;#34;api_endpoint_here&amp;#34; -H &amp;#34;Authorization: meowmeowmeow&amp;#34;const kittn = require(&amp;#39;kittn&amp;#39;); let api = kittn.</description>
+    </item>
+    
+  </channel>
+</rss>
