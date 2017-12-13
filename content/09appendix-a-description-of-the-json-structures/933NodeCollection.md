@@ -1,15 +1,17 @@
 ---
-title: NodeCollection
+title: 'NodeCollection'
 weight: 933
 ---
 
  
 ## NodeCollection 
-#### Description: 
+**Description:**
+ 
 A NodeCollection object holds arrays of nodes with different statuses. The following statuses are supported:
 
  
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -20,9 +22,15 @@ A NodeCollection object holds arrays of nodes with different statuses. The follo
 | data | Generic status indicating the node collection just lists nodes without saying anything about the status of the node.  |
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 92) `
+
+>    (no. 92) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "inactive": [
         &lt;Node&gt;,
         &lt;Node&gt;
@@ -41,7 +49,8 @@ A NodeCollection object holds arrays of nodes with different statuses. The follo
         ],
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

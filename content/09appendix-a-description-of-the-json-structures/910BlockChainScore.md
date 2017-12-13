@@ -1,21 +1,29 @@
 ---
-title: BlockChainScore
+title: 'BlockChainScore'
 weight: 910
 ---
 
  
 ## BlockChainScore 
-#### Description: 
+**Description:**
+ 
 The block chain score is a measure how good the block chain is. The higher the score, the better the block chain is.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 60) `
+
+>    (no. 60) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "score": "17a3077c927d9a7e"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

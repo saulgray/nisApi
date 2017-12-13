@@ -1,5 +1,5 @@
 ---
-title: Creating mosaics
+title: 'Creating mosaics'
 weight: 708
 ---
 
@@ -9,8 +9,15 @@ weight: 708
 The basics of the NEM mosaic concept can be found in the chapter Mosaics. To define and create a mosaic type you need to issue a MosaicDefinitionCreationTransaction. As usual this is done by sending a RequestPrepareAnnounce JSON object to NIS which in this case would look like this: 
 
  
-```json
+**JSON structure by example**
 
+`(no. 44) `
+
+>    (no. 44) JSON structure by example
+
+ 
+```json
+       
             {
             "transaction":
             {
@@ -81,15 +88,22 @@ When the transaction gets included into a block and the block is executed, The c
 ### Altering a mosaic definition 
 There might be the need to alter a mosaic definition, either because you want to change the description or because you supplied faulty properties or faulty levy data. This is done simply by issuing another mosaic definition creation transaction as described above with the same mosaic id but different description/properties/levy. However there are some restriction when doing so:
 * The description can be changed at any point even if the creator does not own the entire supply.
-* Properties and the levy data can **only** be changed if the creator owns every single mosaic of that type. This is necessary to prevent the creator from secretly introducing a levy or inflating the mosaic by increasing the supply. Keep in mind that renewing the mosaic definition costs you 50000 XEM again, so it is worthwhile to double check the data before issuing the transaction. 
+* Properties and the levy data can **only** be changed if the creator owns every single mosaic of that type. This is necessary to prevent the creator from secretly introducing a levy or inflating the mosaic by increasing the supply. Keep in mind that renewing the mosaic definition costs you XEM again, so it is worthwhile to double check the data before issuing the transaction. 
 
  
 ### Changing the mosaic supply 
 In case you created a mosaic definition with 'supplyMutable' set to true, you are able to change the mosaic supply. To do so, you must issue a MosaicSupplyChangeTransaction. This is done by sending a RequestPrepareAnnounce JSON object to NIS which in this case would look like this: 
 
  
-```json
+**JSON structure by example**
 
+`(no. 45) `
+
+>    (no. 45) JSON structure by example
+
+ 
+```json
+       
             {
             "transaction":
             {

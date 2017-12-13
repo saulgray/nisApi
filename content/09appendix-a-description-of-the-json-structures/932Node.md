@@ -1,17 +1,24 @@
 ---
-title: Node
+title: 'Node'
 weight: 932
 ---
 
  
 ## Node 
-#### Description: 
+**Description:**
+ 
 Nodes are the entities that perform communication in the network like sending and receiving data. A node has an identity which is tied to an account through which the node can identify itself to the network. The communication is done through the endpoint of the node. Additionally a node provides meta data information.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 91) `
+
+>    (no. 91) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "metaData":
         {
         "features": 1,
@@ -33,7 +40,8 @@ Nodes are the entities that perform communication in the network like sending an
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

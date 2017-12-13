@@ -1,5 +1,5 @@
 ---
-title: NemRequestResult
+title: 'NemRequestResult'
 weight: 930
 ---
 
@@ -8,15 +8,22 @@ weight: 930
 Some requests such as announcing a new transaction return detailed information about the outcome of the request. In those cases the result of the request is returned in a special JSON object called NemRequestResult. The structure is typically used for requests that perform validation or return a status.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 89) `
+
+>    (no. 89) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "type": 4,
         "code": 6,
         "message": "status"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

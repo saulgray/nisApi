@@ -1,18 +1,25 @@
 ---
-title: Transaction objects
+title: 'Transaction objects'
 weight: 919
 ---
 
  
 ## Transaction objects 
 ### ImportanceTransferTransaction 
-#### Description: 
+**Description:**
+ 
 NIS has the ability to transfer the importance of one account to another account for harvesting. The account receiving the importance is called the remote account. Importance transfer transactions are part of the secure harvesting feature of NEM. Once an importance transaction has been included in a block it needs 6 hours to become active.
 
  
-#### JSON structure by example (main network): 
+**JSON structure by example (main network):**
+
+`(no. 69) `
+
+>    (no. 69) JSON structure by example (main network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
         "fee": 3000000,
@@ -24,7 +31,8 @@ NIS has the ability to transfer the importance of one account to another account
         "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -40,13 +48,20 @@ NIS has the ability to transfer the importance of one account to another account
 
  
 ### MosaicDefinitionCreationTransaction 
-#### Description: 
+**Description:**
+ 
 Before a mosaic can be created or transferred, a corresponding definition of the mosaic has to be created and published to the network. This is done via a mosaic definition creation transaction.
 
  
-#### JSON structure by example (test network): 
+**JSON structure by example (test network):**
+
+`(no. 70) `
+
+>    (no. 70) JSON structure by example (test network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
         "fee": 108000000,
@@ -89,7 +104,8 @@ Before a mosaic can be created or transferred, a corresponding definition of the
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -106,13 +122,20 @@ Before a mosaic can be created or transferred, a corresponding definition of the
 
  
 ### MosaicSupplyChangeTransaction 
-#### Description: 
+**Description:**
+ 
 In case a mosaic definition has the property 'supplyMutable' set to true, the creator of the mosaic definition can change the supply, i.e. increase or decrease the supply.
 
  
-#### JSON structure by example (test network): 
+**JSON structure by example (test network):**
+
+`(no. 71) `
+
+>    (no. 71) JSON structure by example (test network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
         "fee": 108000000,
@@ -128,7 +151,8 @@ In case a mosaic definition has the property 'supplyMutable' set to true, the cr
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -145,13 +169,20 @@ In case a mosaic definition has the property 'supplyMutable' set to true, the cr
 
  
 ### MultisigAggregateModificationTransaction 
-#### Description: 
+**Description:**
+ 
 Multisig aggregate modification transactions are part of the NEM's multisig account system. A multisig aggregate modification transaction holds an array of multisig cosignatory modifications and a single multisig minimum cosignatories modification inside the transaction. A multisig aggregate modification transaction can be wrapped by a multisig transaction. Aggregate modification transactions that use the minCosignatories field need to have version 0x68000002 (decimal 1744830466) for mainnet and 0x98000002 (decimal -1744830462) for testnet. 
 
  
-#### JSON structure by example (main network): 
+**JSON structure by example (main network):**
+
+`(no. 72) `
+
+>    (no. 72) JSON structure by example (main network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
         "fee": 3000000,
@@ -168,7 +199,8 @@ Multisig aggregate modification transactions are part of the NEM's multisig acco
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -185,18 +217,26 @@ Multisig aggregate modification transactions are part of the NEM's multisig acco
 
  
 ### MultisigCosignatoryModification 
-#### Description: 
+**Description:**
+ 
 Multisig cosignatory modifications are part of the NEM's multisig account system. With a multisig cosignatory modification a cosignatory is added to or deleted from a multisig account. Multisig cosignatory modifications are part of a multisig aggregate modification transactions, see details there.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 73) `
+
+>    (no. 73) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "modificationType": 1,
         "cosignatoryAccount": "213150649f51d6e9113316cbec5bf752ef7968c1e823a28f19821e91daf848be"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -205,13 +245,20 @@ Multisig cosignatory modifications are part of the NEM's multisig account system
 
  
 ### MultisigSignatureTransaction 
-#### Description: 
+**Description:**
+ 
 Multisig signature transactions are part of the NEM's multisig account system. Multisig signature transactions are included in the corresponding multisig transaction and are the way a cosignatory of a multisig account can sign a multisig transaction for that account.
 
  
-#### JSON structure by example (test network): 
+**JSON structure by example (test network):**
+
+`(no. 74) `
+
+>    (no. 74) JSON structure by example (test network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
         "fee": 3000000,
@@ -225,7 +272,8 @@ Multisig signature transactions are part of the NEM's multisig account system. M
         "otherAccount": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -241,13 +289,20 @@ Multisig signature transactions are part of the NEM's multisig account system. M
 
  
 ### MultisigTransaction 
-#### Description: 
+**Description:**
+ 
 Multisig transaction are the only way to make transaction from a multisig account to another account. A multisig transaction carries another transaction inside (often referred to as "inner" transaction). The inner transaction can be a transfer, an importance transfer or an aggregate modification transaction. A multisig transaction also has multisig signature transactions from the cosignatories of the multisig account inside.
 
  
-#### JSON structure by example (test network): 
+**JSON structure by example (test network):**
+
+`(no. 75) `
+
+>    (no. 75) JSON structure by example (test network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
         "fee": 3000000,
@@ -262,7 +317,8 @@ Multisig transaction are the only way to make transaction from a multisig accoun
         ]
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -278,13 +334,20 @@ Multisig transaction are the only way to make transaction from a multisig accoun
 
  
 ### ProvisionNamespaceTransaction 
-#### Description: 
+**Description:**
+ 
 Accounts can rent a namespace for one year and after a year renew the contract. This is done via a ProvisionNamespaceTransaction.
 
  
-#### JSON structure by example (test network): 
+**JSON structure by example (test network):**
+
+`(no. 76) `
+
+>    (no. 76) JSON structure by example (test network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
         "fee": 108000000,
@@ -298,7 +361,8 @@ Accounts can rent a namespace for one year and after a year renew the contract. 
         "parent": "alice"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -316,13 +380,20 @@ Accounts can rent a namespace for one year and after a year renew the contract. 
 
  
 ### TransferTransaction 
-#### Description: 
+**Description:**
+ 
 Transfer transactions contain data about transfers of XEM or mosaics to another account. There are two version of transfer transactions, version 1 and version 2. Version 1 transfer transaction are only capable of transferring XEM and a message while version 2 transfer transactions additionally can transfer a set of mosaics. 
 
  
-#### JSON structure by example (v1 transfer transaction, test network): 
+**JSON structure by example (v1 transfer transaction, test network):**
+
+`(no. 77) `
+
+>    (no. 77) JSON structure by example (v1 transfer transaction, test network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "amount": 1000000000,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
@@ -339,9 +410,15 @@ Transfer transactions contain data about transfers of XEM or mosaics to another 
         "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
         }
 ``` 
-#### JSON structure by example (v2 transfer transaction, test network): 
+**JSON structure by example (v2 transfer transaction, test network):**
+
+`(no. 78) `
+
+>    (no. 78) JSON structure by example (v2 transfer transaction, test network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9111526,
         "amount": 123000000,
         "signature": "fad7ea2b5df5f7846f45fd9983a75ad8d333af3660f4f0d355864420f4482605d675e89d97177385338b226097342b4222add52c5397423f9eaf6b01fe3ef70c",
@@ -371,7 +448,8 @@ Transfer transactions contain data about transfers of XEM or mosaics to another 
         }]
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

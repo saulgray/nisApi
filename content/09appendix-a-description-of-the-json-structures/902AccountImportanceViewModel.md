@@ -1,17 +1,24 @@
 ---
-title: AccountImportanceViewModel
+title: 'AccountImportanceViewModel'
 weight: 902
 ---
 
  
 ## AccountImportanceViewModel 
-#### Description: 
+**Description:**
+ 
 Each account is assigned an importance in the NEM network. The ability of an account to generate new blocks is proportional to its importance. The importance is a number between 0 and 1.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 52) `
+
+>    (no. 52) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "address": "TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS"
         "importance":
         {
@@ -22,7 +29,8 @@ Each account is assigned an importance in the NEM network. The ability of an acc
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

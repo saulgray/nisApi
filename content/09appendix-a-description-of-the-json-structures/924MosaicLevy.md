@@ -1,17 +1,24 @@
 ---
-title: MosaicLevy
+title: 'MosaicLevy'
 weight: 924
 ---
 
  
 ## MosaicLevy 
-#### Description: 
+**Description:**
+ 
 A mosaic definition can optionally specify a levy for transferring those mosaics. This might be needed by legal entities needing to collect some taxes for transfers.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 83) `
+
+>    (no. 83) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "type": 1,
         "recipient": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "mosaicId": {
@@ -21,7 +28,8 @@ A mosaic definition can optionally specify a levy for transferring those mosaics
         "fee": 1000
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

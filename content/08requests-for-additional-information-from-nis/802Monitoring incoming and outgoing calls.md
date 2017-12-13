@@ -1,5 +1,5 @@
 ---
-title: Monitoring incoming and outgoing calls
+title: 'Monitoring incoming and outgoing calls'
 weight: 802
 ---
 
@@ -10,18 +10,26 @@ weight: 802
 | /debug/connections/incoming | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an audit collection of incoming calls as described in Appendix A: AuditCollection . You can monitor the outstanding and recent incoming requests with this information. 
 
  
-#### No parameter: 
-#### Example: 
-http://127.0.0.1:7890/debug/connections/incoming
+**No parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/debug/connections/incoming`
+ 
+**Example of returned JSON AuditCollection object:**
+
+`(no. 48) `
+
+>    (no. 48) Example of returned JSON AuditCollection object:
 
  
-#### Example of returned JSON AuditCollection object: 
 ```json
-{
+       {
         "outstanding": [
         {
         "path": "/debug/connections/incoming",
@@ -47,7 +55,8 @@ http://127.0.0.1:7890/debug/connections/incoming
         }]
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None.
 
  
@@ -56,18 +65,26 @@ None.
 | /debug/connections/outgoing | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an audit collection of outgoing calls as described in Appendix A: AuditCollection . You can monitor the outstanding and recent outgoing requests with this information. 
 
  
-#### No parameter: 
-#### Example: 
-http://127.0.0.1:7890/debug/connections/outgoing
+**No parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/debug/connections/outgoing`
+ 
+**Example of returned JSON AuditCollection object:**
+
+`(no. 49) `
+
+>    (no. 49) Example of returned JSON AuditCollection object:
 
  
-#### Example of returned JSON AuditCollection object: 
 ```json
-{
+       {
         "outstanding": [
         {
         "path": "/chain/blocks-after",
@@ -93,7 +110,8 @@ http://127.0.0.1:7890/debug/connections/outgoing
         }]
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None.
 
  

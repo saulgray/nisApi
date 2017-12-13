@@ -1,17 +1,24 @@
 ---
-title: RequestAnnounce
+title: 'RequestAnnounce'
 weight: 935
 ---
 
  
 ## RequestAnnounce 
-#### Description: 
+**Description:**
+ 
 A RequestAnnounce object is used to transfer the transaction data and the signature to NIS in order to initiate and broadcast a transaction.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 94) `
+
+>    (no. 94) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "data": "010100000100000000000000200000002b76078fa709bbe675
         2222b215abc7ec0152ffe831fb4f9aed3e7749a425900a0009
         3d0000000000000000002800000054444e46555946584f5353
@@ -24,7 +31,8 @@ A RequestAnnounce object is used to transfer the transaction data and the signat
         ad4a564747ff9291db4a88b65c97c10d"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

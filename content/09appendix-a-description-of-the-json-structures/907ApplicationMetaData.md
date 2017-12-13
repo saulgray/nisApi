@@ -1,17 +1,24 @@
 ---
-title: ApplicationMetaData
+title: 'ApplicationMetaData'
 weight: 907
 ---
 
  
 ## ApplicationMetaData 
-#### Description: 
+**Description:**
+ 
 The application meta data object supplies additional information about the application running on a node.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 57) `
+
+>    (no. 57) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "currentTime": 9189086,
         "application": "NEM Infrastructure Server",
         "startTime": 9060202,
@@ -19,7 +26,8 @@ The application meta data object supplies additional information about the appli
         "signer": "CN=NEM Community,OU=Development Team,O=NEM,L=Internet,ST=web,C=WD"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

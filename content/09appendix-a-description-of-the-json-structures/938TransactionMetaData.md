@@ -1,17 +1,24 @@
 ---
-title: TransactionMetaData
+title: 'TransactionMetaData'
 weight: 938
 ---
 
  
 ## TransactionMetaData 
-#### Description: 
+**Description:**
+ 
 Transactions meta data object contains additional information about the transaction.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 97) `
+
+>    (no. 97) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "height": 40706,
         "id": 2769,
         "hash": {
@@ -19,7 +26,8 @@ Transactions meta data object contains additional information about the transact
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

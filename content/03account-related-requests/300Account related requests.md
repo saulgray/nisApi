@@ -1,5 +1,5 @@
 ---
-title: Account related requests
+title: 'Account related requests'
 weight: 300
 ---
 
@@ -11,11 +11,13 @@ This chapter will guide you through the process of retrieving account informatio
 NIS supports two different kind of accounts: normal accounts and multsig (short for: multi signature) accounts:
 
  
-#### Normal accounts: 
+**Normal accounts:**
+ 
 Normal accounts are created and controlled by a private key. Any action for the account like sending NEM to another account via a transfer transaction is signed with this private key. If an attacker gains knowledge of the private key, he/she can rob the account. The private key must therefore be kept secret by all means.
 
  
-#### Multisig accounts: 
+**Multisig accounts:**
+ 
 Multisig accounts can be created by converting a normal account to a multisig account via a **aggregate modification transaction**. This adds cosignatories to the account. After that modification, only the cosignatories can initiate an action for the account. Any action must be signed by all cosignatories. This makes a multisig account significantly more secure than a normal account. When a single cosignatory private key is gained by an attacker, the attacker still can't initiate any action on the account since **all** cosignatories must sign. It is strongly recommended to convert any account holding a significantly high amount of NEM into a multisig account with at least 3 cosignatories. Once converted to a multisig account, the original private key for the account plays no role any more.
 
  
@@ -91,7 +93,7 @@ Transaction meta data contains only following field:
 
 
  
-Accounts can harvest (i.e. generate new) blocks if they are lucky. The account which harvests a block collects the fees which are included in the transactions in the block. The information which blocks were harvested by an account can be requested. The request returns an array of HarvestInfo JSON objects. For an example see Appendix A: HarvestInfo 
+Accounts can harvest (i.e. generate new) blocks if they are lucky. The account which harvests a block collects the fees which are included in the transactions in the block. The information which blocks were harvested by an account can be requested. The request returns an array of HarvestInfo JSON objects. For an example [see Appendix A: HarvestInfo](#harvestinfo) 
 
  
 A harvest info object has the following fields:
@@ -110,7 +112,7 @@ A harvest info object has the following fields:
 
 
  
-It is possible to request an array with the importance information for all accounts. The request returns an array of AccountImportanceViewModel JSON objects. For an example see Appendix A: AccountImportanceViewModel . 
+It is possible to request an array with the importance information for all accounts. The request returns an array of AccountImportanceViewModel JSON objects. For an example [see Appendix A: AccountImportanceViewModel](#accountimportanceviewmodel) . 
 
  
 An account importance view model has the following fields:

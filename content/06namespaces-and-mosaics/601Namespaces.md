@@ -1,5 +1,5 @@
 ---
-title: Namespaces
+title: 'Namespaces'
 weight: 601
 ---
 
@@ -16,8 +16,8 @@ NEM supports the concept of namespaces which is the NEM analog of internet domai
  A namespace rental contract is done via a Appendix A: ProvisionNamespaceTransaction . In addition to the usual transaction fee there is a rental fee. This fee is paid to the so called rental fee sink which is a special account with address
 * NAMESPACEWH4MKFMBCVFERDPOOP4FK7MTBXDPZZA in the main net and
 * TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35 in the test net. The fee for renting a namespace for one year is
-* 50000 XEM for a root namespace and
-* 5000 XEM for a sub-namespace. 
+* 100 XEM for a root namespace and
+* 10 XEM for a sub-namespace. 
 
  
  The ownership of a namespace is needed in order to create mosaics. 
@@ -29,11 +29,13 @@ NEM supports the concept of namespaces which is the NEM analog of internet domai
 | /namespace/root/page | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets the root namespaces. The requests supports paging, i.e. retrieving the root namespaces in batches of a specified size. The request returns an array of NamespaceMetaDataPair objects.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -41,21 +43,26 @@ Gets the root namespaces. The requests supports paging, i.e. retrieving the root
 |  pagesize   |  The number of namespace objects to be returned for each request. The parameter is optional. The default value is 25, the minimum value is 5 and hte maximum value is 100.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/namespace/roots?id=26754&amp;pageSize;=35
+**Example:**
+ 
+`http://127.0.0.1:7890/namespace/roots?id=26754&pageSize;=35`
+ 
+**Example of returned JSON object:**
+
+`(no. 32) `
+
+>    (no. 32) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data": [{
         "meta":{
             "id":26264,
         },
         "namespace":{
             "fqn": "makoto.metal.coins",
-            "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+            "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
             "height": 13465
         }
         },{
@@ -64,13 +71,14 @@ http://127.0.0.1:7890/namespace/roots?id=26754&amp;pageSize;=35
         },
         "namespace":{
             "fqn": "gimre.vouchers",
-            "owner": TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
+            "owner": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
             "height": 12392
         }
         }]
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None.
 
  
@@ -80,31 +88,39 @@ None.
 | /namespace | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets the namespace with given id.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  namespace   |  The namespace id.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/namespace?namespace=makoto.metal.coins
+**Example:**
+ 
+`http://127.0.0.1:7890/namespace?namespace=makoto.metal.coins`
+ 
+**Example of returned JSON object:**
+
+`(no. 33) `
+
+>    (no. 33) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
         }
 ``` 
-#### Possible Errors: 
-NIS returns an error if the namespace parameter is missing or invalid. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+NIS returns an error if the namespace parameter is missing or invalid. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  

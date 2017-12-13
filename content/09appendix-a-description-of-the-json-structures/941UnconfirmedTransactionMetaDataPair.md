@@ -1,20 +1,22 @@
 ---
-title: UnconfirmedTransactionMetaDataPair
+title: 'UnconfirmedTransactionMetaDataPair'
 weight: 941
 ---
 
  
 ## UnconfirmedTransactionMetaDataPair 
-#### Description: 
+**Description:**
+ 
 ```json
-{
+       {
         "meta":
         &lt;UnconfirmedTransactionMetaData&gt;,
         "transaction":
         &lt;Transaction&gt;
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

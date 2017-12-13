@@ -1,17 +1,24 @@
 ---
-title: BootNodeRequest
+title: 'BootNodeRequest'
 weight: 912
 ---
 
  
 ## BootNodeRequest 
-#### Description: 
+**Description:**
+ 
 The BootNodeRequest JSNON object is used to transfer the relevant data for booting a local node to NIS. With the boot data NIS can create the local node object and connect to the network.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 62) `
+
+>    (no. 62) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "metaData":
         {
         "application":"NIS"
@@ -29,8 +36,10 @@ The BootNodeRequest JSNON object is used to transfer the relevant data for booti
         }
         }
 ``` 
-#### Description of the fields: 
-#### Description of the fields: 
+**Description of the fields:**
+ 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

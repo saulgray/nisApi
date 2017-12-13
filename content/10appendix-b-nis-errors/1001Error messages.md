@@ -1,5 +1,5 @@
 ---
-title: Error messages
+title: 'Error messages'
 weight: 1001
 ---
 

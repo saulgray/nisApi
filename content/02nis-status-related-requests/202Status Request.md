@@ -1,5 +1,5 @@
 ---
-title: Status Request
+title: 'Status Request'
 weight: 202
 ---
 
@@ -10,22 +10,29 @@ weight: 202
 | /status | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Determines the status of NIS.
 
  
-#### No Parameter: 
-#### Example: 
-http://127.0.0.1:7890/status
+**No Parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/status`
+ 
+**Example of returned JSON object:**
+
+`(no. 2) `
+
+>    (no. 2) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "code": 6,
         "type": 4,
-        **"message": "status"**
+        "message": "status"
         }
 ``` 
 The code can be interpreted as follows:
@@ -43,7 +50,8 @@ The code can be interpreted as follows:
 1. NIS is currently loading the block chain from the database. In this state NIS cannot serve any requests.
 
  
-#### Possible Errors: 
+**Possible Errors:**
+ 
 If there is no response to this request, NIS is either not running or is in a state where it can't serve requests.
 
  

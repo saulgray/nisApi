@@ -1,5 +1,5 @@
 ---
-title: Heart beat request
+title: 'Heart beat request'
 weight: 201
 ---
 
@@ -10,25 +10,33 @@ weight: 201
 | /heartbeat | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Determines if NIS is up and responsive.
 
  
-#### No Parameter: 
-#### Example: 
-http://127.0.0.1:7890/heartbeat
+**No Parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/heartbeat`
+ 
+**Example of returned JSON object:**
+
+`(no. 1) `
+
+>    (no. 1) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "code": 1,
         "type": 2,
         "message": "ok"
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 If there is no response to this request, NIS is either not running or is in a state where it can't serve requests.
 
  

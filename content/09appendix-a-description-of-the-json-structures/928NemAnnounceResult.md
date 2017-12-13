@@ -1,17 +1,24 @@
 ---
-title: NemAnnounceResult
+title: 'NemAnnounceResult'
 weight: 928
 ---
 
  
 ## NemAnnounceResult 
-#### Description: 
+**Description:**
+ 
 The NemAnnounceResult extends the NemRequestResult by supplying the additional fields 'transactionHash' and in case of a multisig transaction 'innerTransactionHash'.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 87) `
+
+>    (no. 87) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "type": 4,
         "code": 6,
         "message": "status",
@@ -23,7 +30,8 @@ The NemAnnounceResult extends the NemRequestResult by supplying the additional f
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

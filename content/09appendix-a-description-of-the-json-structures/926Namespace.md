@@ -1,23 +1,31 @@
 ---
-title: Namespace
+title: 'Namespace'
 weight: 926
 ---
 
  
 ## Namespace 
-#### Description: 
+**Description:**
+ 
 A namespace is the NEM version of a domain. You can rent a namespace for the duration of a year by paying a fee. The naming of the parts of a namespace has certain restrictions, see the corresponding chapter on namespaces.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 85) `
+
+>    (no. 85) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

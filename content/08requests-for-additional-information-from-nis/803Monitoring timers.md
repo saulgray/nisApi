@@ -1,5 +1,5 @@
 ---
-title: Monitoring timers
+title: 'Monitoring timers'
 weight: 803
 ---
 
@@ -10,18 +10,26 @@ weight: 803
 | /debug/connections/timers | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of task monitor structures as described in Appendix A: NemAsyncTimerVisitor . You can monitor the statistics for periodic tasks with this information. 
 
  
-#### No parameter: 
-#### Example: 
-http://127.0.0.1:7890/debug/timers
+**No parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/debug/timers`
+ 
+**Example of returned array of JSON NemAsyncTimerVisitor objects:**
+
+`(no. 50) `
+
+>    (no. 50) Example of returned array of JSON NemAsyncTimerVisitor objects:
 
  
-#### Example of returned array of JSON NemAsyncTimerVisitor objects: 
 ```json
-{
+       {
         "data": [
         {
         "last-delay-time": 3000,
@@ -47,7 +55,8 @@ http://127.0.0.1:7890/debug/timers
         }]
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None.
 
  

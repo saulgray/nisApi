@@ -1,5 +1,5 @@
 ---
-title: Retrieving historical account data
+title: 'Retrieving historical account data'
 weight: 302
 ---
 
@@ -13,11 +13,13 @@ The configuration for NIS offers the possibility for a node to expose additional
 | /account/historical/get | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets historical information for an account.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -27,14 +29,19 @@ Gets historical information for an account.
 |  increment   |  The value by which the height is incremented between each data point. The value must be greater than 0. NIS can supply up to 1000 data points with one request. Requesting more than 1000 data points results in an error.   |
 
  
-#### Example: 
- http://bigalice3.nem.ninja:7890/account/historical/get?address=NALICELGU3IVY4DPJKHYLSSVYFFWYS5QPLYEZDJJ&amp;startHeight=17592&amp;endHeight=17592&amp;increment=1 
+**Example:**
+ 
+` http://bigalice3.nem.ninja:7890/account/historical/get?address=NALICELGU3IVY4DPJKHYLSSVYFFWYS5QPLYEZDJJ&startHeight=17592&endHeight=17592&increment=1 `
+ 
+**Example of returned JSON object:**
+
+`(no. 18) `
+
+>    (no. 18) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         [
         {
         "height": 17592,
@@ -48,7 +55,8 @@ Gets historical information for an account.
         ]
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 If the address is invalid, the start height is larger than the endheight, the increment is not a positive or the request results in more than 1000 data points an error is returned.
 
  

@@ -1,5 +1,5 @@
 ---
-title: Requesting parts of the block chain
+title: 'Requesting parts of the block chain'
 weight: 402
 ---
 
@@ -14,24 +14,32 @@ NIS can supply either individual blocks identified by block height or block hash
 | /block/get | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets a block from the chain that has a given hash.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  blockHash    |  The 256 bit sha3 hash of the block. The hash must be supplied as hexadecimal string.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/block/get?blockHash=58efa578aea719b644e8d7c731852bb26d8505257e03a897c8102e8c894a99d6 
+**Example:**
+ 
+`http://127.0.0.1:7890/block/get?blockHash=58efa578aea719b644e8d7c731852bb26d8505257e03a897c8102e8c894a99d6 `
+ 
+**Example of returned JSON object (main network):**
+
+`(no. 22) `
+
+>    (no. 22) Example of returned JSON object (main network):
 
  
-#### Example of returned JSON object (main network): 
 ```json
-{
+       {
         "timeStamp": 9232942,
         "signature": "005f91b8908fc173a428ff8e8c4a0ee0d69e4004aed0d08f27690b6b6672ef74ccc6b89695bed5f29b0f4a812cb84bfa459f52a4e14a11e574793969f0e1a30f",
         "prevBlockHash": {
@@ -45,8 +53,9 @@ http://127.0.0.1:7890/block/get?blockHash=58efa578aea719b644e8d7c731852bb26d8505
         "height": 42803
         }
 ``` 
-#### Possible Errors: 
-If the block hash is not found in the database, NIS will return a JSON error object. See Appendix A: Error object or more information of the error object and Appendix B: NIS Errors for the error message. 
+**Possible Errors:**
+ 
+If the block hash is not found in the database, NIS will return a JSON error object. [See Appendix A: Error object](#error-object) or more information of the error object and Appendix B: NIS Errors for the error message. 
 
  
 ### Getting a block with a given height 
@@ -55,24 +64,32 @@ If the block hash is not found in the database, NIS will return a JSON error obj
 | /block/at/public | POST|
 
  
-#### Description: 
+**Description:**
+ 
 Gets a block from the chain that has the given height.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  blockHeight    |  A BlockHeight JSON object as described in Appendix A: BlockHeight .    |
 
  
-#### Example: 
-Request cannot be performed in a browser.
+**Example:**
+ 
+`Request cannot be performed in a browser.`
+ 
+**Example of returned JSON object (test network):**
+
+`(no. 23) `
+
+>    (no. 23) Example of returned JSON object (test network):
 
  
-#### Example of returned JSON object (test network): 
 ```json
-{
+       {
         "timeStamp": 9232942,
         "signature": "005f91b8908fc173a428ff8e8c4a0ee0d69e4004aed0d08f27690b6b6672ef74ccc6b89695bed5f29b0f4a812cb84bfa459f52a4e14a11e574793969f0e1a30f",
         "prevBlockHash": {
@@ -86,8 +103,9 @@ Request cannot be performed in a browser.
         "height": 42803
         }
 ``` 
-#### Possible Errors: 
-If the block with the specified height cannot be found in the database, NIS will return a JSON error object. See Appendix A: Error object or more information of the error object and Appendix B: NIS Errors the error message. 
+**Possible Errors:**
+ 
+If the block with the specified height cannot be found in the database, NIS will return a JSON error object. [See Appendix A: Error object](#error-object) or more information of the error object and Appendix B: NIS Errors the error message. 
 
  
 ### Getting part of a chain 
@@ -96,25 +114,32 @@ If the block with the specified height cannot be found in the database, NIS will
 | /local/chain/blocks-after | POST|
 
  
-#### Description: 
+**Description:**
+ 
 Gets up to 10 blocks after given block height from the chain. If the database contains less than 10 block after the given height, then less blocks are returned. The returned data is an array of ExplorerBlockViewModel JSON objects.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  blockHeight    |  A BlockHeight JSON object as described in Appendix A: BlockHeight .    |
 
  
-#### Example: 
-Request cannot be performed in a browser.
+**Example:**
+ 
+`Request cannot be performed in a browser.`
+ 
+**Example of returned JSON object:**
+
+`(no. 24) `
+
+>    (no. 24) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data":[{
         "txes":[{
         "tx": &lt;ExplorerViewModelTransaction&gt;
@@ -125,7 +150,8 @@ Request cannot be performed in a browser.
         }]
         }
 ``` 
-#### Possible Errors: 
-If the block height supplied is not positive, NIS will return a JSON error object. See Appendix A: Error object ** **for more information of the error object and Appendix B: NIS Errors for the error message. 
+**Possible Errors:**
+ 
+If the block height supplied is not positive, NIS will return a JSON error object. [See Appendix A: Error object](#error-object) for more information of the error object and Appendix B: NIS Errors for the error message. 
 
  

@@ -1,23 +1,31 @@
 ---
-title: TimeSynchronizationResult
+title: 'TimeSynchronizationResult'
 weight: 937
 ---
 
  
 ## TimeSynchronizationResult 
-#### Description: 
+**Description:**
+ 
 A time synchronization result is the outcome of the network time synchronization of a node with other remote nodes. To agree upon a common time nodes need to synchronize time every hour.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 96) `
+
+>    (no. 96) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "dateTime": "2014-11-16 20:47:06",
         "currentTimeOffset": 2786,
         "change": 36
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

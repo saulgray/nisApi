@@ -1,5 +1,5 @@
 ---
-title: General Information
+title: 'General Information'
 weight: 101
 ---
 

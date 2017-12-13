@@ -1,17 +1,24 @@
 ---
-title: AccountMetaData
+title: 'AccountMetaData'
 weight: 904
 ---
 
  
 ## AccountMetaData 
-#### Description: 
+**Description:**
+ 
 The account meta data describes additional information for the account. See Account related requests for details.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 54) `
+
+>    (no. 54) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "status": "LOCKED",
         "remoteStatus": "ACTIVE",
         "cosignatoryOf" : [
@@ -24,7 +31,8 @@ The account meta data describes additional information for the account. See Acco
         ]
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

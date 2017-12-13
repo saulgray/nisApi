@@ -1,11 +1,11 @@
 ---
-title: Converting an account to a multisig account
+title: 'Converting an account to a multisig account'
 weight: 703
 ---
 
  
 ## Converting an account to a multisig account 
-NIS natively supports m of n multisig accounts. This means an account can be converted into a multisig account having n cosignatories and m of those cosignatories need to sign a transaction from the multisig account in order to complete the transaction. To convert a normal account to a multisig account an aggregate modification transaction (see Appendix A: MultisigAggregateModificationTransaction ) must be sent to the network. Assuming you want to convert Alice with public key: 
+NIS natively supports m of n multisig accounts. This means an account can be converted into a multisig account having n cosignatories and m of those cosignatories need to sign a transaction from the multisig account in order to complete the transaction. To convert a normal account to a multisig account an aggregate modification transaction ([see Appendix A: MultisigAggregateModificationTransaction](#transaction-objects) ) must be sent to the network. Assuming you want to convert Alice with public key: 
 
  
 into a 2 of 3 multisig account meaning the account has 3 cosignatories and at least 2 cosignatories have to sign to complete a multisig transaction:
@@ -14,8 +14,15 @@ into a 2 of 3 multisig account meaning the account has 3 cosignatories and at le
 you would have to create a JSON object that looks similar to this (test network):
 
  
+**JSON structure by example**
+
+`(no. 38) `
+
+>    (no. 38) JSON structure by example
+
+ 
 ```json
- {
+        {
         "transaction":
         {
         "timeStamp": 9111526,

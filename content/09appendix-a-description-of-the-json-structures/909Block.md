@@ -1,17 +1,24 @@
 ---
-title: Block
+title: 'Block'
 weight: 909
 ---
 
  
 ## Block 
-#### Description: 
+**Description:**
+ 
 A block is the structure that contains the transaction information. A block can contain up to 120 transactions. Blocks are generated and signed by accounts and are the instrument by which information is spread in the network.
 
  
-#### JSON structure by example (main network): 
+**JSON structure by example (main network):**
+
+`(no. 59) `
+
+>    (no. 59) JSON structure by example (main network):
+
+ 
 ```json
-{
+       {
         "timeStamp": 9022656,
         "signature": "256ebcfa4f92e2881963359c51095a390b9f4d1b3fee75ae19f96d5e6bcf055abbcaae3e55bcc17e6214924e4e6a9ebbe77357236b1a235e944950b851bda804",
         "prevBlockHash":
@@ -20,14 +27,15 @@ A block is the structure that contains the transaction information. A block can 
         },
         "type": 1,
         "transactions": [
-        Transaction1, Transaction2, …, Transaction11
+        Transaction1, Transaction2, ..., Transaction11
         ],
         "version": 1744830465,
         "signer": "6c66ea288522990db7a0a63c9c20f532cdcb68dc3c9544fb20f7322c92ceadbb",
         "height": 39324
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

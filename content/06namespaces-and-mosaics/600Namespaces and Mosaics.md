@@ -1,5 +1,5 @@
 ---
-title: Namespaces and Mosaics
+title: 'Namespaces and Mosaics'
 weight: 600
 ---
 

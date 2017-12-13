@@ -1,17 +1,24 @@
 ---
-title: RequestPrepareAnnounce
+title: 'RequestPrepareAnnounce'
 weight: 936
 ---
 
  
 ## RequestPrepareAnnounce 
-#### Description: 
+**Description:**
+ 
 A RequestPrepareAnnounce object is used to transfer transaction data and a private key to NIS in order to initiate and broadcast a transaction.
 
  
-#### JSON structure by example (test network): 
+**JSON structure by example (test network):**
+
+`(no. 95) `
+
+>    (no. 95) JSON structure by example (test network):
+
+ 
 ```json
-{
+       {
         "transaction":
         {
         "timeStamp": 9111526,
@@ -31,7 +38,8 @@ A RequestPrepareAnnounce object is used to transfer transaction data and a priva
         "privateKey": "68e4f79f886927de698df4f857de2aada41ccca6617e56bb0d61623b35b08cc0"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

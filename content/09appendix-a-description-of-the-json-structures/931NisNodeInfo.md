@@ -1,17 +1,24 @@
 ---
-title: NisNodeInfo
+title: 'NisNodeInfo'
 weight: 931
 ---
 
  
 ## NisNodeInfo 
-#### Description: 
+**Description:**
+ 
 The NisNodeInfo object provides detailed information about a node.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 90) `
+
+>    (no. 90) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "node": {
         &lt;Node&gt;
         },
@@ -20,7 +27,8 @@ The NisNodeInfo object provides detailed information about a node.
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

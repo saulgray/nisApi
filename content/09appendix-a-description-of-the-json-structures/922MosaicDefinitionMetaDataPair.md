@@ -1,17 +1,24 @@
 ---
-title: MosaicDefinitionMetaDataPair
+title: 'MosaicDefinitionMetaDataPair'
 weight: 922
 ---
 
  
 ## MosaicDefinitionMetaDataPair 
-#### Description: 
+**Description:**
+ 
 A mosaic definition consists of a database id and a mosaic definition object. The id is needed for requests that support paging.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 81) `
+
+>    (no. 81) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "meta" {
         "id": 3541
         }
@@ -27,7 +34,8 @@ A mosaic definition consists of a database id and a mosaic definition object. Th
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

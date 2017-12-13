@@ -1,17 +1,24 @@
 ---
-title: AccountInfo
+title: 'AccountInfo'
 weight: 903
 ---
 
  
 ## AccountInfo 
-#### Description: 
+**Description:**
+ 
 The account structure describes basic information for an account.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 53) `
+
+>    (no. 53) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "address": "TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS",
         "balance": 124446551689680,
         "vestedBalance": 1041345514976241,
@@ -21,8 +28,10 @@ The account structure describes basic information for an account.
         "harvestedBlocks": 645
         }
 ``` 
-#### Description of the fields: 
-#### Description of the fields: 
+**Description of the fields:**
+ 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

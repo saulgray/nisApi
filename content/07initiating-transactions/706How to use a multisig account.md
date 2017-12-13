@@ -1,5 +1,5 @@
 ---
-title: How to use a multisig account
+title: 'How to use a multisig account'
 weight: 706
 ---
 

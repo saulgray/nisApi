@@ -1,5 +1,5 @@
 ---
-title: Initiating a transaction
+title: 'Initiating a transaction'
 weight: 701
 ---
 
@@ -10,24 +10,32 @@ weight: 701
 | /transaction/prepare-announce | POST|
 
  
-#### Description: 
+**Description:**
+ 
 Creates and broadcasts a transaction. Since this request involves the private key of an account, it should only be sent to a **local** NIS.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  requestPrepareAnnounce   |  A RequestPrepareAnnounce JSON object as described in Appendix A: RequestPrepareAnnounce .    |
 
  
-#### Example: 
-Request cannot be performed in a browser.
+**Example:**
+ 
+`Request cannot be performed in a browser.`
+ 
+**Example of returned JSON NemAnnounceResult object:**
+
+`(no. 35) `
+
+>    (no. 35) Example of returned JSON NemAnnounceResult object:
 
  
-#### Example of returned JSON NemAnnounceResult object: 
 ```json
-{
+       {
         "type":1,
         "code":1,
         "message":"SUCCESS",
@@ -39,8 +47,9 @@ Request cannot be performed in a browser.
         }
         }
 ``` 
-#### Possible Errors: 
-There are various errors that can occur due to failure of transaction validation See Appendix A: Error object ** **for more information of the error object and Appendix B: NIS Errors for the error message. 
+**Possible Errors:**
+ 
+There are various errors that can occur due to failure of transaction validation [See Appendix A: Error object](#error-object) for more information of the error object and Appendix B: NIS Errors for the error message. 
 
  
 The most common errors are:

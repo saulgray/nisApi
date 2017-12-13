@@ -1,5 +1,5 @@
 ---
-title: Retrieving account data
+title: 'Retrieving account data'
 weight: 301
 ---
 
@@ -11,25 +11,33 @@ weight: 301
 | /account/generate | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Generates a KeyPairViewModel.
 
  
-#### No Parameter: 
-#### Example: 
-http://127.0.0.1:7890/account/generate
+**No Parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/generate`
+ 
+**Example of returned JSON object:**
+
+`(no. 3) `
+
+>    (no. 3) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "privateKey": "0962c6505d02123c40e858ff8ef21e2b7b5466be12c4770e3bf557aae828390f",
         "address": "NCKMNCU3STBWBR7E3XD2LR7WSIXF5IVJIDBHBZQT",
         "publicKey": "c2e19751291d01140e62ece9ee3923120766c6302e1099b04014fe1009bc89d3"
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None.
 
  
@@ -39,25 +47,32 @@ None.
 | /account/get | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an AccountMetaDataPair for an account.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  address   |  The address of the account.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/get?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/get?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS `
+ 
+**Example of returned JSON object:**
+
+`(no. 4) `
+
+>    (no. 4) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "account":
         {
         "address": "TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS",
@@ -77,8 +92,9 @@ http://127.0.0.1:7890/account/get?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2T
         }
         }
 ``` 
-#### Possible Errors: 
-If the address parameter is not valid, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 
@@ -92,22 +108,24 @@ Alternatively you can retrieve the account data by providing the public key for 
 | /account/get/from-public-key | GET|
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  publicKey   |  The public key of the account as hex string.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/get/from-public-key?publicKey=f9bd190dd0c364261f5c8a74870cc7f7374e631352293c62ecc437657e5de2cd 
-
+**Example:**
+ 
+`http://127.0.0.1:7890/account/get/from-public-key?publicKey=f9bd190dd0c364261f5c8a74870cc7f7374e631352293c62ecc437657e5de2cd `
  
 The returned JSON object has the same structure as in the first example.
 
  
-#### Possible Errors: 
-If the public key parameter is not valid, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the public key parameter is not valid, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Requesting the original account data for a delegate account 
@@ -116,25 +134,32 @@ If the public key parameter is not valid, NIS returns an error. See Appendix B: 
 | /account/get/forwarded | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Given a delegate (formerly known as remote) account's address, gets the AccountMetaDataPair for the account for which the given account is the delegate account. If the given account address is not a delegate account for any account, the request returns the AccountMetaDataPair for the given address.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  address   |  The address of the delegate account.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/get/forwarded?address=NC2ZQKEFQIL3JZEOB2OZPWXWPOR6LKYHIROCR7PK 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/get/forwarded?address=NC2ZQKEFQIL3JZEOB2OZPWXWPOR6LKYHIROCR7PK `
+ 
+**Example of returned JSON object:**
+
+`(no. 5) `
+
+>    (no. 5) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "account":
         {
         "address": "NALICE2A73DLYTP4365GNFCURAUP3XVBFO7YNYOW",
@@ -154,8 +179,9 @@ http://127.0.0.1:7890/account/get/forwarded?address=NC2ZQKEFQIL3JZEOB2OZPWXWPOR6
         }
         }
 ``` 
-#### Possible Errors: 
-If the address parameter is not valid, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 
@@ -169,22 +195,24 @@ Alternatively you can retrieve the original account data by providing the public
 | /account/get/forwarded/from-public-key | GET|
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  publicKey   |  The public key of the account as hex string.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/get/forwarded/from-public-key?publicKey=bdd8dd702acb3d88daf188be8d6d9c54b3a29a32561a068b25d2261b2b2b7f02 
-
+**Example:**
+ 
+`http://127.0.0.1:7890/account/get/forwarded/from-public-key?publicKey=bdd8dd702acb3d88daf188be8d6d9c54b3a29a32561a068b25d2261b2b2b7f02 `
  
 The returned JSON object has the same structure as in the first example.
 
  
-#### Possible Errors: 
-If the public key parameter is not valid, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the public key parameter is not valid, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Requesting the account status 
@@ -193,45 +221,55 @@ If the public key parameter is not valid, NIS returns an error. See Appendix B: 
 | /account/status | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets the AccountMetaData from an account.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  Address   |  The address of the account.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/status?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/status?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS `
+ 
+**Example of returned JSON object:**
+
+`(no. 6) `
+
+>    (no. 6) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "cosignatoryOf": [ ],
         "status": "LOCKED",
         "remoteStatus": "ACTIVE"
         }
 ``` 
-#### Possible Errors: 
-If the address parameter is not valid, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Requesting transaction data for an account 
 A transaction is said to be incoming with respect to an account if the account is the recipient of the transaction. In the same way outgoing transaction are the transactions where the account is the sender of the transaction. Unconfirmed transactions are those transactions that have not yet been included in a block. Unconfirmed transactions are **not** guaranteed to be included in any block.
 
  
-#### Incoming transactions 
+**Incoming transactions**
+ 
 | API path: | Request type:  |
 |------|------|
 | /account/transfers/incoming | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of TransactionMetaDataPair objects where the recipient has the address given as parameter to the request. A maximum of 25 transaction meta data pairs is returned. The returned transaction meta data pairs are sorted in descending order in which they were written to the database.
 
  
@@ -247,7 +285,8 @@ If less than 25 transactions fulfill the requirements, only those transactions a
 
 
  
-#### Parameters: 
+**Parameters:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -256,14 +295,21 @@ If less than 25 transactions fulfill the requirements, only those transactions a
 |  id    |  The transaction id up to which transactions are returned.   |
 
  
-####  
-#### Example: 
- http://127.0.0.1:7890/account/transfers/incoming?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&amp;hash=949583a20ebdfdcb58277eb42fef3e66e9e6bbfc47304d8741a82c68f7c53a2 
+****
+ 
+**Example:**
+ 
+` http://127.0.0.1:7890/account/transfers/incoming?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&hash=949583a20ebdfdcb58277eb42fef3e66e9e6bbfc47304d8741a82c68f7c53a2 `
+ 
+**Example of returned JSON object (test network):**
+
+`(no. 7) `
+
+>    (no. 7) Example of returned JSON object (test network):
 
  
-#### Example of returned JSON object (test network): 
 ```json
-{
+       {
         "data": [
         {
         "meta":
@@ -321,21 +367,25 @@ If less than 25 transactions fulfill the requirements, only those transactions a
         }]
         }
 ``` 
-#### Possible Errors: 
-If the address parameter is not valid or the id cannot be found in the database, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid or the id cannot be found in the database, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
-#### Outgoing transactions 
+**Outgoing transactions**
+ 
 | API path: | Request type:  |
 |------|------|
 | /account/transfers/outgoing | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of transaction meta data pairs where the recipient has the address given as parameter to the request. A maximum of 25 transaction meta data pairs is returned. For details about sorting and discussion of the second parameter see Incoming transactions.
 
  
-#### Parameters: 
+**Parameters:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -344,14 +394,21 @@ Gets an array of transaction meta data pairs where the recipient has the address
 |  id    |  The transaction id up to which transactions are returned.   |
 
  
-####  
-#### Example: 
-http://127.0.0.1:7890/account/transfers/outgoing?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&amp;hash=949583a20ebdfdcb58277eb42fef3e66e9e6bbfc47304d8741a82c68f7c53a22 
+****
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/transfers/outgoing?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&hash=949583a20ebdfdcb58277eb42fef3e66e9e6bbfc47304d8741a82c68f7c53a22 `
+ 
+**Example of returned JSON object (test network):**
+
+`(no. 8) `
+
+>    (no. 8) Example of returned JSON object (test network):
 
  
-#### Example of returned JSON object (test network): 
 ```json
-{
+       {
         "data": [
         {
         "meta":
@@ -382,21 +439,25 @@ http://127.0.0.1:7890/account/transfers/outgoing?address=TALICELCD3XPH4FFI5STGGN
         }]
         }
 ``` 
-#### Possible Errors: 
-If the address parameter is not valid or the id cannot be found in the database, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid or the id cannot be found in the database, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
-#### All transactions 
+**All transactions**
+ 
 | API path: | Request type:  |
 |------|------|
 | /account/transfers/all | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of transaction meta data pairs for which an account is the sender or receiver. A maximum of 25 transaction meta data pairs is returned. For details about sorting and discussion of the second parameter see Incoming transactions.
 
  
-#### Parameters: 
+**Parameters:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -405,44 +466,60 @@ Gets an array of transaction meta data pairs for which an account is the sender 
 |  id    |  The transaction id up to which transactions are returned.   |
 
  
-####  
-#### Example: 
- http://127.0.0.1:7890/account/transfers/all?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&amp;hash=949583a20ebdfdcb58277eb42fef3e66e9e6bbfc47304d8741a82c68f7c53a22 
-
+****
  
->    Example of returned JSON object:
+**Example:**
+ 
+` http://127.0.0.1:7890/account/transfers/all?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&hash=949583a20ebdfdcb58277eb42fef3e66e9e6bbfc47304d8741a82c68f7c53a22 `
+ 
+**Example of returned JSON object:**
+
+`(no. 9) `
+
+>    (no. 9) Example of returned JSON object:
+
  
 See example for Incoming transactions or Outgoing transactions.
 
  
-#### Possible Errors: 
-If the address parameter is not valid or the id cannot be found in the database, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid or the id cannot be found in the database, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
-#### Unconfirmed transactions 
+**Unconfirmed transactions**
+ 
 | API path: | Request type:  |
 |------|------|
 | /account/unconfirmedTransactions | GET|
 
  
-#### Description: 
-Gets the array of transactions for which an account is the sender or receiver and which have not yet been included in a block. The returned structure is UnconfirmedTransactionMetaDataPair see Appendix A: UnconfirmedTransactionMetaDataPair 
+**Description:**
+ 
+Gets the array of transactions for which an account is the sender or receiver and which have not yet been included in a block. The returned structure is UnconfirmedTransactionMetaDataPair [see Appendix A: UnconfirmedTransactionMetaDataPair](#unconfirmedtransactionmetadatapair) 
 
  
-#### Parameters: 
+**Parameters:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  address   |  The address of the account.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/unconfirmedTransactions?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/unconfirmedTransactions?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS `
+ 
+**Example of returned JSON object (test network):**
+
+`(no. 10) `
+
+>    (no. 10) Example of returned JSON object (test network):
 
  
-#### Example of returned JSON object (test network): 
 ```json
-{
+       {
         "meta": {
         "data": "d7c9e33421e43bf4a5d6e21304c8096c599142755d581bd6e9037f41545a5873"
         },
@@ -464,15 +541,17 @@ http://127.0.0.1:7890/account/unconfirmedTransactions?address=TALICELCD3XPH4FFI5
         }]
         }
 ``` 
-#### Possible Errors: 
-If the address parameter is not valid, NIS returns an error. See Appendix B: NIS Errors Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) Errors for details about errors. 
 
  
 ### Transaction data with decoded messages 
 All the requests for retrieving transaction data for an account which were described in previous part do not decode any message contained in a transaction. The following requests are similar to the ones above but are able to return transaction data with decoded messages. Decoding requires the private key of an account for which transactions are requested. Therefore the following requests **should only be done when NIS is running locally**.
 
  
-#### Incoming/outgoing/all transactions with decoded messages 
+**Incoming/outgoing/all transactions with decoded messages**
+ 
 | API path: | Request type:  |
 |------|------|
 | /local/account/transfers/incoming | POST|
@@ -488,28 +567,36 @@ All the requests for retrieving transaction data for an account which were descr
 | /local/account/transfers/all | POST|
 
  
-#### Description: 
+**Description:**
+ 
 The request returns incoming/outgoing/all transactions as described in the previous chapter. The only difference is that if a transaction contains an encoded message, this message will be decoded before it is sent to the requester.
 
  
-#### Parameters: 
+**Parameters:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  page   |  An AccountPrivateKeyTransactionsPage JSON object as described in Appendix A: AccountPrivateKeyTransactionsPage    |
 
  
-#### Example: 
-Request cannot be performed in a browser.
-
+**Example:**
  
->    Example of returned JSON object:
+`Request cannot be performed in a browser.`
+ 
+**Example of returned JSON object:**
+
+`(no. 11) `
+
+>    (no. 11) Example of returned JSON object:
+
  
 See section: Requesting transaction data for an account
 
  
-#### Possible Errors: 
-If the private key is not supplied, NIS returns an error. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+If the private key is not supplied, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Requesting harvest info data for an account 
@@ -518,11 +605,13 @@ If the private key is not supplied, NIS returns an error. See Appendix B: NIS Er
 | /account/harvests | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of harvest info objects for an account.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -530,14 +619,19 @@ Gets an array of harvest info objects for an account.
 |  hash    |  The 256 bit sha3 hash of the block up to which harvested blocks are returned.   |
 
  
-#### Example: 
- http://127.0.0.1:7890/account/harvests?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&amp;hash=81d52a7df4abba8bb1613bcc42b6b93cf3114524939035d88ae8e864cd2c34c8 
+**Example:**
+ 
+` http://127.0.0.1:7890/account/harvests?address=TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS&hash=81d52a7df4abba8bb1613bcc42b6b93cf3114524939035d88ae8e864cd2c34c8 `
+ 
+**Example of returned JSON object:**
+
+`(no. 12) `
+
+>    (no. 12) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data": [{
         "timeStamp": 8879051,
         "blockHash": {
@@ -548,8 +642,9 @@ Gets an array of harvest info objects for an account.
         }]
         }
 ``` 
-#### Possible Errors: 
-If the address parameter is not valid or the hash cannot be found in the database, NIS returns an error. See Appendix B: NIS Errors Errors for details about errors. 
+**Possible Errors:**
+ 
+If the address parameter is not valid or the hash cannot be found in the database, NIS returns an error. [See Appendix B: NIS Errors](#appendix-b-nis-errors) Errors for details about errors. 
 
  
 ### Retrieving account importances for accounts 
@@ -558,19 +653,26 @@ If the address parameter is not valid or the hash cannot be found in the databas
 | /account/importances | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of account importance view model objects.
 
  
-#### No parameter: 
-#### Example: 
-http://127.0.0.1:7890/account/importances
+**No parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/importances`
+ 
+**Example of returned JSON object:**
+
+`(no. 13) `
+
+>    (no. 13) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data": [{
         "address": "TCYGT6GHZPNASMAXV7YCFCU5R5XTJKNNT66R4A4T",
         "importance": {
@@ -588,7 +690,8 @@ http://127.0.0.1:7890/account/importances
         }]
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None.
 
  
@@ -598,11 +701,13 @@ None.
 | /account/namespace/page | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of namespace objects for a given account address. The parent parameter is optional. If supplied, only sub-namespaces of the parent namespace are returned.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -612,23 +717,29 @@ Gets an array of namespace objects for a given account address. The parent param
 |  pageSize   |  The (optional) number of namespaces to be returned.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/namespace/page?address=TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH&amp;parent=makoto.metal 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/namespace/page?address=TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH&parent=makoto.metal `
+ 
+**Example of returned JSON object:**
+
+`(no. 14) `
+
+>    (no. 14) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data": [{
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
         }]
         }
 ``` 
-#### Possible Errors: 
-NIS returns an error if the address or the parent (if supplied) is invalid. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+NIS returns an error if the address or the parent (if supplied) is invalid. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Retrieving mosaic definitions that an account has created 
@@ -637,11 +748,13 @@ NIS returns an error if the address or the parent (if supplied) is invalid. See 
 | /account/mosaic/definition/page | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of mosaic definition objects for a given account address. The parent parameter is optional. If supplied, only mosaic definitions for the given parent namespace are returned. The id parameter is optional and allows retrieving mosaic definitions in batches of 25 mosaic definitions. For more information how to use the id see Incoming transactions. 
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -650,14 +763,19 @@ Gets an array of mosaic definition objects for a given account address. The pare
 |  id   |  The optional mosaic definition database id up to which mosaic definitions are returned.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/mosaic/definition/page?address=TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH&amp;parent=makoto.metal.coins 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/mosaic/definition/page?address=TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH&parent=makoto.metal.coins `
+ 
+**Example of returned JSON object:**
+
+`(no. 15) `
+
+>    (no. 15) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data": [{
         "creator": "10cfe522fe23c015b8ab24ef6a0c32c5de78eb55b2152ed07b6a092121187100",
         "id": {
@@ -681,8 +799,9 @@ http://127.0.0.1:7890/account/mosaic/definition/page?address=TD3RXTHBLK6J3UD2BH2
         }]
         }
 ``` 
-#### Possible Errors: 
-NIS returns an error if the address, the parent (if supplied) or the id (if supplied) is invalid. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+NIS returns an error if the address, the parent (if supplied) or the id (if supplied) is invalid. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Retrieving mosaics that an account owns 
@@ -691,25 +810,32 @@ NIS returns an error if the address, the parent (if supplied) or the id (if supp
 | /account/mosaic/owned | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of mosaic objects for a given account address.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  address   |  The address of the account.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/account/mosaic/owned?address=TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH 
+**Example:**
+ 
+`http://127.0.0.1:7890/account/mosaic/owned?address=TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH `
+ 
+**Example of returned JSON object:**
+
+`(no. 16) `
+
+>    (no. 16) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data": [{
         "mosaicId": {
         "namespaceId": "alice.drinks",
@@ -725,60 +851,70 @@ http://127.0.0.1:7890/account/mosaic/owned?address=TD3RXTHBLK6J3UD2BH2PXSOFLPWZO
         }]
         }
 ``` 
-#### Possible Errors: 
-NIS returns an error if the address is invalid. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+NIS returns an error if the address is invalid. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Locking and unlocking accounts 
 Accounts that have at least 10000 vested NEM balance are allowed to harvest blocks. To do that the account must be unlocked. After start-up of NIS all accounts are locked by default.
 
  
-#### Unlocking the account (enables harvesting) 
+**Unlocking the account (enables harvesting)**
+ 
 | API path: | Request type:  |
 |------|------|
 | /account/unlock | POST|
 
  
-#### Description: 
+**Description:**
+ 
 Unlocks an account (starts harvesting).
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  **privateKey**   |  A PrivateKey JSON object as described in Appendix A: PrivateKey    |
 
  
-#### Example: 
-Request cannot be performed in a browser.
-
+**Example:**
  
-#### No return value 
-#### Locking the account (stops harvesting) 
+`Request cannot be performed in a browser.`
+ 
+**No return value**
+ 
+**Locking the account (stops harvesting)**
+ 
 | API path: | Request type:  |
 |------|------|
 | /account/lock | POST|
 
  
-#### Description: 
+**Description:**
+ 
 Locks an account (stops harvesting).
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  **privateKey**   |  A PrivateKey JSON object as described in Appendix A: PrivateKey    |
 
  
-#### Example: 
-Request cannot be performed in a browser.
-
+**Example:**
  
-#### No return value 
-#### Possible Errors: 
-Both requests return an error if the private key does not correspond to a known account or the account is not allowed to harvest. See Appendix B: NIS Errors for details about errors. 
+`Request cannot be performed in a browser.`
+ 
+**No return value**
+ 
+**Possible Errors:**
+ 
+Both requests return an error if the private key does not correspond to a known account or the account is not allowed to harvest. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  
 ### Retrieving the unlock info 
@@ -790,20 +926,27 @@ Each node can allow users to harvest with their delegated key on that node. The 
 | /account/unlocked/info | POST|
 
  
-#### No parameter: 
-#### Example: 
-Request cannot be performed in a browser.
+**No parameter:**
+ 
+**Example:**
+ 
+`Request cannot be performed in a browser.`
+ 
+**Example of returned JSON object:**
+
+`(no. 17) `
+
+>    (no. 17) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "num-unlocked" : 2,
         "max-unlocked" : 3
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None
 
  

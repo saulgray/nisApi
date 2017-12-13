@@ -1,24 +1,32 @@
 ---
-title: AccountMetaDataPair
+title: 'AccountMetaDataPair'
 weight: 905
 ---
 
  
 ## AccountMetaDataPair 
-#### Description: 
+**Description:**
+ 
 The account meta data pair includes durable information for an account and additional information about its state.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 55) `
+
+>    (no. 55) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "account":
         &lt;AccountInfo&gt;,
         "meta":
         &lt;AccountMetaData&gt;
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

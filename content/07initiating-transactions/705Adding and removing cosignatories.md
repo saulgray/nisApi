@@ -1,5 +1,5 @@
 ---
-title: Adding and removing cosignatories
+title: 'Adding and removing cosignatories'
 weight: 705
 ---
 
@@ -14,8 +14,15 @@ Suppose you want to add the cosignatory Hachi to the multisig account Alice and 
 To do that, one of the existing cosignatories (assuming here it is Jusan) must initiate the corresponding multisig transaction (test network):
 
  
+**JSON structure by example**
+
+`(no. 41) `
+
+>    (no. 41) JSON structure by example
+
+ 
 ```json
-{
+       {
         "transaction":
         {
         "timeStamp": 9111526,
@@ -34,7 +41,7 @@ To do that, one of the existing cosignatories (assuming here it is Jusan) must i
         "modifications": [
         {
         "modificationType": 1,
-        **"cosignatoryAccount": "6c66ea288522990db7a0a63c9c20f532cdcb68dc3c9544fb20f7322c92ceadbb"**
+        "cosignatoryAccount": "6c66ea288522990db7a0a63c9c20f532cdcb68dc3c9544fb20f7322c92ceadbb"
         }
         ],
         "minCosignatories" : {

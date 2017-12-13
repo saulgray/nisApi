@@ -1,5 +1,5 @@
 ---
-title: Block chain related requests
+title: 'Block chain related requests'
 weight: 400
 ---
 

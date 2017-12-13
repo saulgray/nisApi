@@ -1,24 +1,32 @@
 ---
-title: TransactionMetaDataPair
+title: 'TransactionMetaDataPair'
 weight: 939
 ---
 
  
 ## TransactionMetaDataPair 
-#### Description: 
+**Description:**
+ 
 Transactions meta data object contains additional information about the transaction.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 98) `
+
+>    (no. 98) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "meta":
         &lt;TransactionMetaData&gt;,
         "transaction":
         &lt;Transaction&gt;
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

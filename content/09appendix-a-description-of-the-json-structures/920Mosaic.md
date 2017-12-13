@@ -1,17 +1,24 @@
 ---
-title: Mosaic
+title: 'Mosaic'
 weight: 920
 ---
 
  
 ## Mosaic 
-#### Description: 
+**Description:**
+ 
 A mosaic describes an instance of a mosaic definition. Mosaics can be transferred by means of a transfer transaction.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 79) `
+
+>    (no. 79) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "mosaicId": {
         "namespaceId": "alice.drinks",
         "name": "orange juice"
@@ -19,7 +26,8 @@ A mosaic describes an instance of a mosaic definition. Mosaics can be transferre
         "quantity": 123000
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

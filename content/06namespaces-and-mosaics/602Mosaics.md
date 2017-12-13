@@ -1,5 +1,5 @@
 ---
-title: Mosaics
+title: 'Mosaics'
 weight: 602
 ---
 
@@ -25,7 +25,7 @@ weight: 602
  
  A mosaic definition can be created via a Appendix A: MosaicDefinitionCreationTransaction . In addition to the usual transaction fee there is a creation fee. This fee is paid to the so called creation fee sink which is a special account with address
 * NBMOSAICOD4F54EE5CDMR23CCBGOAM2XSIUX6TRS in the main net and
-* TBMOSAICOD4F54EE5CDMR23CCBGOAM2XSJBR5OLC in the test net. The fee for creating a mosaic definition is 50000 XEM. 
+* TBMOSAICOD4F54EE5CDMR23CCBGOAM2XSJBR5OLC in the test net. The fee for creating a mosaic definition is 10 XEM. 
 
  
 There is one predefined mosaic which represents the XEM coin. The data for this XEM mosaic is:
@@ -44,11 +44,13 @@ There is one predefined mosaic which represents the XEM coin. The data for this 
 | /namespace/mosaic/definition/page | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets the mosaic definitions for a given namespace. The request supports paging. The request return an array of MosaicDefinitionMetaDataPair objects.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
@@ -57,14 +59,19 @@ Gets the mosaic definitions for a given namespace. The request supports paging. 
 |  pagesize   |  The number of mosaic definition objects to be returned for each request. The parameter is optional. The default value is 25, the minimum value is 5 and hte maximum value is 100.   |
 
  
-#### Example: 
-http://127.0.0.1:7890/namespace/mosaic/definition/page?namespace=makoto.metal.coins 
+**Example:**
+ 
+`http://127.0.0.1:7890/namespace/mosaic/definition/page?namespace=makoto.metal.coins `
+ 
+**Example of returned JSON object:**
+
+`(no. 34) `
+
+>    (no. 34) Example of returned JSON object:
 
  
->    Example of returned JSON object:
- 
 ```json
-{
+       {
         "data": [{
         "meta" {
         "id": 3541
@@ -93,7 +100,8 @@ http://127.0.0.1:7890/namespace/mosaic/definition/page?namespace=makoto.metal.co
         }]
         }
 ``` 
-#### Possible Errors: 
-NIS returns an error if the namespace parameter is missing or invalid. See Appendix B: NIS Errors for details about errors. 
+**Possible Errors:**
+ 
+NIS returns an error if the namespace parameter is missing or invalid. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for details about errors. 
 
  

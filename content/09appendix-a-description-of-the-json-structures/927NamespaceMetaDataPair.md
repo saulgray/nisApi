@@ -1,28 +1,36 @@
 ---
-title: NamespaceMetaDataPair
+title: 'NamespaceMetaDataPair'
 weight: 927
 ---
 
  
 ## NamespaceMetaDataPair 
-#### Description: 
+**Description:**
+ 
 A namespace consists of a namespace object and a database id. the id is needed for requests that support paging.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 86) `
+
+>    (no. 86) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "meta":{
         "id":26264,
         },
         "namespace":{
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

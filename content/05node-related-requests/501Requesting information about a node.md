@@ -1,5 +1,5 @@
 ---
-title: Requesting information about a node
+title: 'Requesting information about a node'
 weight: 501
 ---
 
@@ -11,39 +11,45 @@ weight: 501
 | /node/info | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets basic information about a node. Using IP 127.0.0.1 gets information about the local node.
 
  
-#### No parameter: 
-#### Example: 
-http://127.0.0.1:7890/node/info
+**No parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/node/info`
+ 
+**Example of returned JSON Node**
+
+`(no. 25) `
+
+>    (no. 25) Example of returned JSON Node
 
  
-#### Example of returned JSON Node 
 ```json
-{
-        "metaData":
-        {
+       {
+        "metaData":{
         "application": "NIS",
         "version": "0.4.33-BETA",
         "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
         },
-        "endpoint":
-        {
+        "endpoint":{
         "protocol": "http",
         "port": 7890,
         "host": "81.224.224.156"
         },
-        "identity":
-        {
+        "identity":{
         "name": "Alice",
         "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
         }
         }
 ``` 
-#### Possible Errors: 
-In case the node has not been booted yet, NIS will return a JSON error object. See Appendix A: Error object ** **for more information of the error object and Appendix B: NIS Errors for the error message. 
+**Possible Errors:**
+ 
+In case the node has not been booted yet, NIS will return a JSON error object. [See Appendix A: Error object](#error-object) for more information of the error object and Appendix B: NIS Errors for the error message. 
 
  
 ### Extended node information 
@@ -52,39 +58,43 @@ In case the node has not been booted yet, NIS will return a JSON error object. S
 | /node/extended-info | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets extended information about a node. Using IP 127.0.0.1 gets extended information about the local node.
 
  
-#### No parameter: 
-#### Example: 
-http://127.0.0.1:7890/node/extended-info
+**No parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/node/extended-info`
+ 
+**Example of returned JSON NisNodeInfo object:**
+
+`(no. 26) `
+
+>    (no. 26) Example of returned JSON NisNodeInfo object:
 
  
-#### Example of returned JSON NisNodeInfo object: 
 ```json
-{
+       {
         "node": {
-        "metaData":
-        {
+        "metaData":{
         "application": "NIS",
         "version": "0.4.33-BETA",
         "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
         },
-        "endpoint":
-        {
+        "endpoint":{
         "protocol": "http",
         "port": 7890,
         "host": "81.224.224.156"
         },
-        "identity":
-        {
+        "identity":{
         "name": "Alice",
         "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
         }
         },
-        "nisInfo":
-        {
+        "nisInfo":{
         "currentTime": 9288341,
         "application": "NEM Infrastructure Server",
         "startTime": 9238484,
@@ -94,7 +104,8 @@ http://127.0.0.1:7890/node/extended-info
         }
         }
 ``` 
-#### Possible Errors: 
-In case the node has not been booted yet, NIS will return a JSON error object. See Appendix A: Error object ** **for more information of the error object and Appendix B: NIS Errors for the error message. 
+**Possible Errors:**
+ 
+In case the node has not been booted yet, NIS will return a JSON error object. [See Appendix A: Error object](#error-object) for more information of the error object and Appendix B: NIS Errors for the error message. 
 
  

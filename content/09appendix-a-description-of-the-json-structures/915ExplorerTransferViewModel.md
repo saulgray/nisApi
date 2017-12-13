@@ -1,23 +1,31 @@
 ---
-title: ExplorerTransferViewModel
+title: 'ExplorerTransferViewModel'
 weight: 915
 ---
 
  
 ## ExplorerTransferViewModel 
-#### Description: 
+**Description:**
+ 
 The following structure is used by the NEM block chain explorer for convenience reason. The data is similar but not identical to that of a Transaction structure.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 65) `
+
+>    (no. 65) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "tx": &lt;Transaction&gt;,
         "hash": "5cba4614e52af19417fb53c4bdf442a57b9f558aee17ece530a5220da55cf47d",
         "innerHash": "ae3b107f1216e1ccf12b6f3c3c555bc1d95311747338ce66f539ea2c18c0aa57"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

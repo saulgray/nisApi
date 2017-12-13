@@ -1,22 +1,30 @@
 ---
-title: MosaicId
+title: 'MosaicId'
 weight: 925
 ---
 
  
 ## MosaicId 
-#### Description: 
+**Description:**
+ 
 A mosaic id uniquely identifies an underlying mosaic definition.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 84) `
+
+>    (no. 84) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "namespaceId": "alice.drinks",
         "name": "orange juice"
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

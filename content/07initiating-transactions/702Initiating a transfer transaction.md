@@ -1,5 +1,5 @@
 ---
-title: Initiating a transfer transaction
+title: 'Initiating a transfer transaction'
 weight: 702
 ---
 
@@ -24,8 +24,15 @@ TBOBBSXX7BESJXDWGLP5Z7FM5HSTKUH5WIMPW562
 The RequestPrepareAnnounce JSON object you have to send to NIS via a POST request would look similar to this (test network):
 
  
-```json
+**JSON structure by example:**
 
+`(no. 36) `
+
+>    (no. 36) JSON structure by example:
+
+ 
+```json
+       
         {
         "transaction":
         {
@@ -50,8 +57,15 @@ The RequestPrepareAnnounce JSON object you have to send to NIS via a POST reques
 Note that there is no signature in the transaction part of the object since NIS will create the signature for you. Note also that the field 'version' contains both the network version and the transaction version as can be see when converting the value to the hexadecimal system: -1744830463 = 0x98000001 (network version 0x98 and transaction version 0x01). If the sender account has enough funds for the transaction NIS would respond with the JSON object
 
  
+**JSON structure by example**
+
+`(no. 37) `
+
+>    (no. 37) JSON structure by example
+
+ 
 ```json
-{
+       {
         "type": 1,
         "code": 1,
         "message": "SUCCESS",
@@ -69,7 +83,7 @@ However, version 2 transfer transaction are more powerful as they let you transf
 
  
 ```json
-
+       
         {
         "transaction":
         {

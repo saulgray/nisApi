@@ -1,17 +1,24 @@
 ---
-title: MosaicDefinition
+title: 'MosaicDefinition'
 weight: 921
 ---
 
  
 ## MosaicDefinition 
-#### Description: 
+**Description:**
+ 
 A mosaic definition describes an asset class. Some fields are mandatory while others are optional. The properties of a mosaic definition always have a default value and only need to be supplied if they differ from the default value.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 80) `
+
+>    (no. 80) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "creator": "10cfe522fe23c015b8ab24ef6a0c32c5de78eb55b2152ed07b6a092121187100",
         "id": {
         "namespaceId": "alice.drinks",
@@ -42,7 +49,8 @@ A mosaic definition describes an asset class. Some fields are mandatory while ot
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

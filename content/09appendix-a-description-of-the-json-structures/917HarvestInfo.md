@@ -1,17 +1,24 @@
 ---
-title: HarvestInfo
+title: 'HarvestInfo'
 weight: 917
 ---
 
  
 ## HarvestInfo 
-#### Description: 
+**Description:**
+ 
 A HarvestInfo object contains information about a block that an account harvested.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 67) `
+
+>    (no. 67) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "timeStamp": 8963798,
         "id": 254378,
         "difficulty": 46534789865332,
@@ -19,7 +26,8 @@ A HarvestInfo object contains information about a block that an account harveste
         "height": 38453
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

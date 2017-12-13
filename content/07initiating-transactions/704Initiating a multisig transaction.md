@@ -1,5 +1,5 @@
 ---
-title: Initiating a multisig transaction
+title: 'Initiating a multisig transaction'
 weight: 704
 ---
 
@@ -8,11 +8,18 @@ weight: 704
 As stated above, only one of the cosignatories (Bob, Jusan and Go) can create a transaction for the account Alice.
 
  
-Lets assume Bob wants to start a transfer transaction which transfers 1000 NEM from account Alice to account Jusan. Since the account Alice is a multisig account the transfer transaction (in the JSON object the "otherTrans" structure) must be wrapped in a multisig transaction (see Appendix A: MultisigTransaction ). The corresponding RequestPrepareAnnounce object would look similar to this (test network): 
+Lets assume Bob wants to start a transfer transaction which transfers 1000 NEM from account Alice to account Jusan. Since the account Alice is a multisig account the transfer transaction (in the JSON object the "otherTrans" structure) must be wrapped in a multisig transaction ([see Appendix A: MultisigTransaction](#transaction-objects) ). The corresponding RequestPrepareAnnounce object would look similar to this (test network): 
+
+ 
+**JSON structure by example**
+
+`(no. 39) `
+
+>    (no. 39) JSON structure by example
 
  
 ```json
- {
+        {
         "transaction":
         {
         "timeStamp": 9111526,
@@ -46,7 +53,7 @@ NIS will sign the transaction and publish it. The returned NemAnnounceResult obj
 
  
 ```json
-    {
+           {
         "type": 1,
         "code": 1,
         "message": "SUCCESS"
@@ -54,22 +61,29 @@ NIS will sign the transaction and publish it. The returned NemAnnounceResult obj
             "data":"c1786437336da077cd572a27710c40c378610e8d33880bcb7bdb0a42e3d35586"
         },
         "innerTransactionHash": {
-            **"data": "44e4968e5aa35fe182d4def5958e23cf941c4bf809364afb4431ebbf6a18c039"**
+            "data": "44e4968e5aa35fe182d4def5958e23cf941c4bf809364afb4431ebbf6a18c039"
         }
     }
 ``` 
 The hash is needed by the nodes that will create multisig signature transactions for the above transaction.
 
  
-At this point the transaction cannot (and will not) be included in a block because none of the other cosignatories - Jusan and Go - has signed the transaction yet …
+At this point the transaction cannot (and will not) be included in a block because none of the other cosignatories - Jusan and Go - has signed the transaction yet ...
 
  
 ### Cosigning multisig transaction 
-… to do so, Jusan or Go must initiate a multisig signature transaction (see Appendix A: MultisigSignatureTransaction ). Jusan has to create a RequestPrepareAnnounce JSON object that looks similar to this (test network): 
+... to do so, Jusan or Go must initiate a multisig signature transaction ([see Appendix A: MultisigSignatureTransaction](#transaction-objects) ). Jusan has to create a RequestPrepareAnnounce JSON object that looks similar to this (test network): 
+
+ 
+**JSON structure by example**
+
+`(no. 40) `
+
+>    (no. 40) JSON structure by example
 
  
 ```json
- {
+        {
         "transaction":
         {
         "timeStamp": 9111526,
@@ -79,9 +93,9 @@ At this point the transaction cannot (and will not) be included in a block becau
         "version": -1744830463,
         "signer": "0662ed29cbfa7038530fb7f52df865eed6708d51bc7a24bcd05db35185b53c70",
         "otherHash": {
-        **"data": "44e4968e5aa35fe182d4def5958e23cf941c4bf809364afb4431ebbf6a18c039"**
+        "data": "44e4968e5aa35fe182d4def5958e23cf941c4bf809364afb4431ebbf6a18c039"
         },
-        **"otherAccount": "TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS"**
+        "otherAccount": "TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS"
         },
         "privateKey": "00be34fdb20a9f6fed51376f0bab9f25ea7a48d610324588a6b203d0a1a6db4bc1"
         }

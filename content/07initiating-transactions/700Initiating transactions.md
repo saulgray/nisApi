@@ -1,5 +1,5 @@
 ---
-title: Initiating transactions
+title: 'Initiating transactions'
 weight: 700
 ---
 

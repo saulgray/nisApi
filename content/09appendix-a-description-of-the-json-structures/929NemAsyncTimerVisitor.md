@@ -1,17 +1,24 @@
 ---
-title: NemAsyncTimerVisitor
+title: 'NemAsyncTimerVisitor'
 weight: 929
 ---
 
  
 ## NemAsyncTimerVisitor 
-#### Description: 
+**Description:**
+ 
 NIS uses timers to schedule periodic tasks. Those tasks are monitored and their result is memorized. The NemAsyncTimeVisitor structure holds the information.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 88) `
+
+>    (no. 88) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "last-delay-time": 3000,
         "executions": 1024,
         "failures": 0,
@@ -23,7 +30,8 @@ NIS uses timers to schedule periodic tasks. Those tasks are monitored and their 
         "last-operation-time": 0
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

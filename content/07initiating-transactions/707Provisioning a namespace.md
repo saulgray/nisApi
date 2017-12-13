@@ -1,5 +1,5 @@
 ---
-title: Provisioning a namespace
+title: 'Provisioning a namespace'
 weight: 707
 ---
 
@@ -8,8 +8,15 @@ weight: 707
 This chapter explains what actions you have to take in order to provision (i.e. rent) a namespace. You can find a detailed description of namespaces in the chapter Namespaces. Suppose you want to claim the root namespace 'alice' and the sub-namespace 'alice.vouchers'. The first action would be to issue an ProvisionNamespaceTransaction. As usual this is done by sending a RequestPrepareAnnounce JSON object to NIS which in this case would look like this: 
 
  
-```json
+**JSON structure by example**
 
+`(no. 42) `
+
+>    (no. 42) JSON structure by example
+
+ 
+```json
+       
             {
             "transaction":
             {
@@ -38,8 +45,15 @@ The field 'parent' is set to null indicating that you want to rent a root namesp
 To rent the sub-namespace 'alice.vouchers' you need again send a RequestPrepareAnnounce JSON object to NIS which this time looks like this:
 
  
-```json
+**JSON structure by example**
 
+`(no. 43) `
+
+>    (no. 43) JSON structure by example
+
+ 
+```json
+       
              {
              "transaction":
              {
@@ -58,7 +72,7 @@ To rent the sub-namespace 'alice.vouchers' you need again send a RequestPrepareA
              }
          
 ``` 
-This time the parent is set to the parent namespace, in this case the root namespace 'alice'. The rental fee for a sub-namespace is 10% of the fee for a root namespace, i.e. 5000 XEM. Be sure to wait until you own the root namespace or NIS will respond with an error message. Once the transaction is included in a block, you own the sub-namespace 'alice.vouchers' as long as the root namespace 'alice' does not expire.
+This time the parent is set to the parent namespace, in this case the root namespace 'alice'. The rental fee for a sub-namespace is 10% of the fee for a root namespace, i.e. 10 XEM. Be sure to wait until you own the root namespace or NIS will respond with an error message. Once the transaction is included in a block, you own the sub-namespace 'alice.vouchers' as long as the root namespace 'alice' does not expire.
 
  
 If you want to rent the sub-namespace 'alice.vouchers.special' you have to issue a RequestPrepareAnnounce object again, this time with parent set to 'alice.vouchers'. and the newPart being 'special'.

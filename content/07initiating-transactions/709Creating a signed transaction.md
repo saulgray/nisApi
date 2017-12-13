@@ -1,5 +1,5 @@
 ---
-title: Creating a signed transaction
+title: 'Creating a signed transaction'
 weight: 709
 ---
 
@@ -75,24 +75,32 @@ After preparing the data as described in the last section you can send the array
 | /transaction/announce | POST|
 
  
-#### Description: 
+**Description:**
+ 
 Creates and broadcasts a transaction. The private key is not involved.
 
  
-#### Parameter: 
+**Parameter:**
+ 
 
 | Parameter | Description |
 |------|------|
 |  requestAnnounce   |  A RequestAnnounce JSON object as described in Appendix A: RequestAnnounce .    |
 
  
-#### Example: 
-Request cannot be performed in a browser.
+**Example:**
+ 
+`Request cannot be performed in a browser.`
+ 
+**Example of returned JSON NemAnnounceResult object:**
+
+`(no. 46) `
+
+>    (no. 46) Example of returned JSON NemAnnounceResult object:
 
  
-#### Example of returned JSON NemAnnounceResult object: 
 ```json
-{
+       {
         "type":1,
         "code":1,
         "message":"SUCCESS",
@@ -104,7 +112,8 @@ Request cannot be performed in a browser.
         }
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 The possible erros are described in chapter 6.1.
 
  

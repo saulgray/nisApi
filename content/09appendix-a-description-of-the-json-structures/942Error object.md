@@ -1,24 +1,32 @@
 ---
-title: Error object
+title: 'Error object'
 weight: 942
 ---
 
  
 ## Error object 
-#### Description: 
-If NIS encounters an error due to either invalid requests or internal problems, it returns a JSON error object. The interpretation of the error object is dependant on the context. See Appendix B: NIS Errors for detailed information about possible errors. 
+**Description:**
+ 
+If NIS encounters an error due to either invalid requests or internal problems, it returns a JSON error object. The interpretation of the error object is dependant on the context. [See Appendix B: NIS Errors](#appendix-b-nis-errors) for detailed information about possible errors. 
 
  
-#### JSON structure by example 
+**JSON structure by example**
+
+`(no. 99) `
+
+>    (no. 99) JSON structure by example
+
+ 
 ```json
-{
+       {
         "timeStamp": 9108808,
         "error": "Bad Request",
         "message": "address must be valid",
         "status": 400
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

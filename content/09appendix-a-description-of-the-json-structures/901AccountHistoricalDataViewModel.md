@@ -1,17 +1,24 @@
 ---
-title: AccountHistoricalDataViewModel
+title: 'AccountHistoricalDataViewModel'
 weight: 901
 ---
 
  
 ## AccountHistoricalDataViewModel 
-#### Description: 
+**Description:**
+ 
 Nodes can support a feature for retrieving historical data of accounts. If a node supports this feature, it will return an array of AccountHistoricalDataViewModel objects.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 51) `
+
+>    (no. 51) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "height": 8976,
         "address": "NALICELGU3IVY4DPJKHYLSSVYFFWYS5QPLYEZDJJ",
         "balance": 80670000000,
@@ -21,7 +28,8 @@ Nodes can support a feature for retrieving historical data of accounts. If a nod
         "pageRank": 0.0006944567083595363
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|

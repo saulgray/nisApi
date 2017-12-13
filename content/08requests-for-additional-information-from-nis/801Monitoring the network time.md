@@ -1,5 +1,5 @@
 ---
-title: Monitoring the network time
+title: 'Monitoring the network time'
 weight: 801
 ---
 
@@ -10,18 +10,26 @@ weight: 801
 | /debug/time-synchronization | GET|
 
  
-#### Description: 
+**Description:**
+ 
 Gets an array of time synchronization results as described in Appendix A: TimeSynchronizationResult . You can monitor the change in network time with this information. 
 
  
-#### No parameter: 
-#### Example: 
-http://127.0.0.1:7890/debug/time-synchronization
+**No parameter:**
+ 
+**Example:**
+ 
+`http://127.0.0.1:7890/debug/time-synchronization`
+ 
+**Example of returned array of JSON TimeSynchronizationResult objects:**
+
+`(no. 47) `
+
+>    (no. 47) Example of returned array of JSON TimeSynchronizationResult objects:
 
  
-#### Example of returned array of JSON TimeSynchronizationResult objects: 
 ```json
-{
+       {
         "data": [
         {
         "dateTime": "2014-11-19 19:23:04",
@@ -40,7 +48,8 @@ http://127.0.0.1:7890/debug/time-synchronization
         }]
         }
 ``` 
-#### Possible Errors: 
+**Possible Errors:**
+ 
 None.
 
  

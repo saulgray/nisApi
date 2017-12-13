@@ -1,17 +1,24 @@
 ---
-title: ExtendedNodeExperiencePair
+title: 'ExtendedNodeExperiencePair'
 weight: 916
 ---
 
  
 ## ExtendedNodeExperiencePair 
-#### Description: 
+**Description:**
+ 
 When exchanging data with other nodes the result of the communication is divided into three different outcomes: success, neutral and failure. In the cases of success and failure the result is saved to be able to judge the quality of a node. This has influence on the probability that a certain node is selected as partner.
 
  
-#### JSON structure by example: 
+**JSON structure by example:**
+
+`(no. 66) `
+
+>    (no. 66) JSON structure by example:
+
+ 
 ```json
-{
+       {
         "node":
         {
         &lt;Node&gt;
@@ -24,7 +31,8 @@ When exchanging data with other nodes the result of the communication is divided
         }
         }
 ``` 
-#### Description of the fields: 
+**Description of the fields:**
+ 
 
 | Parameter | Description |
 |------|------|
